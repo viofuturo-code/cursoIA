@@ -1,0 +1,498 @@
+<!--
+  =====================================================================
+  VIO FUTURO — Landing Page de Vendas
+  Curso: Profissional 5.0 — Inteligência Artificial na Prática
+  =====================================================================
+  Página única, estática (HTML + CSS + JS vanilla, sem back-end).
+
+  COMO EDITAR:
+  - Substitua o link do formulário: procure por "#FORMULARIO_LINK"
+    e troque em todos os botões de CTA.
+  - Substitua as imagens: procure por comentários "PLACEHOLDER IMAGEM".
+  - Estilos ficam em: assets/styles.css
+  - Animações de scroll ficam em: assets/script.js
+  =====================================================================
+-->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Profissional 5.0: aprenda a usar Inteligência Artificial de verdade no seu dia a dia profissional. Curso da VIO FUTURO com Nayara Namorato. Aula inaugural gratuita." />
+<title>Profissional 5.0 — IA na Prática | VIO FUTURO</title>
+
+<!-- Google Fonts: Barlow Condensed (títulos), Roboto (corpo). Georgia é serifada do sistema. -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/styles.css" />
+
+<body>
+
+  <!-- =================================================================
+       SÍMBOLO DA MARCA — 4 elipses em órbita (SVG reutilizável)
+       Definido uma vez aqui e reutilizado como marca d'água via <use>.
+       ================================================================= -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <g id="vio-orbit">
+        <ellipse cx="100" cy="100" rx="90" ry="38" transform="rotate(0 100 100)" />
+        <ellipse cx="100" cy="100" rx="90" ry="38" transform="rotate(45 100 100)" />
+        <ellipse cx="100" cy="100" rx="90" ry="38" transform="rotate(90 100 100)" />
+        <ellipse cx="100" cy="100" rx="90" ry="38" transform="rotate(135 100 100)" />
+      </g>
+    </defs>
+  </svg>
+
+
+  <!-- =================================================================
+       1. HERO  (fundo violeta escuro)
+       ================================================================= -->
+  <header class="hero section--dark">
+    <!-- Marca d'água: órbita VIO -->
+    <svg class="orbit-watermark orbit-watermark--hero" viewBox="0 0 200 200" aria-hidden="true">
+      <use href="#vio-orbit" />
+    </svg>
+
+    <nav class="hero__nav">
+      <span class="brand">VIO<span class="brand__accent">FUTURO</span></span>
+      <a href="#oferta" class="nav__link">A oferta</a>
+    </nav>
+
+    <div class="hero__inner">
+      <div class="hero__copy">
+        <span class="eyebrow">Curso online · 3ª turma</span>
+        <h1 class="hero__headline">Profissional 5.0:<br />Inteligência Artificial na Prática</h1>
+        <p class="hero__sub">
+          Saia do zero (ou do básico) e comece a usar IA de verdade no seu dia a dia
+          profissional — sem complicação, sem jargão, no seu ritmo.
+        </p>
+
+        <a href="#FORMULARIO_LINK" class="btn btn--primary btn--lg">
+          Participe da aula inaugural gratuita
+        </a>
+        <p class="hero__date">Aula inaugural · 08 de julho, 20h · online e aberta a todos</p>
+      </div>
+
+      <div class="hero__media">
+        <!-- PLACEHOLDER IMAGEM — foto/ilustração de destaque do hero.
+             Sugestão: profissional usando IA no trabalho, tom acolhedor.
+             Troque o <div> abaixo por: <img src="assets/hero.jpg" alt="..."> -->
+        <div class="img-placeholder img-placeholder--hero">
+          <span>Imagem de destaque</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- =================================================================
+       2. A DOR / CONTEXTO  (fundo off-white)
+       ================================================================= -->
+  <section class="section section--light reveal" id="contexto">
+    <div class="container container--narrow">
+      <span class="bar-title">O momento é agora</span>
+      <h2 class="section__title">A IA já faz parte do trabalho.<br />A pergunta é: ela está trabalhando <em>para você</em>?</h2>
+      <p class="lead">
+        A Inteligência Artificial já entrou na rotina de quase todo mundo. Só que a maioria
+        ainda usa o básico — pede um texto aqui, uma ideia ali — ou nem chegou a experimentar.
+      </p>
+      <p>
+        No fim do dia, isso é tempo que escorre entre os dedos: horas gastas em tarefas
+        repetitivas que a tecnologia já poderia assumir por você. Não é sobre entender de
+        programação. É sobre enxergar a oportunidade que está bem na sua frente e aprender
+        a usá-la com intenção.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- =================================================================
+       3. A TRANSFORMAÇÃO / PROMESSA  (fundo violeta)
+       ================================================================= -->
+  <section class="section section--dark reveal" id="transformacao">
+    <svg class="orbit-watermark orbit-watermark--right" viewBox="0 0 200 200" aria-hidden="true">
+      <use href="#vio-orbit" />
+    </svg>
+    <div class="container container--narrow">
+      <span class="bar-title bar-title--light">Depois do curso</span>
+      <h2 class="section__title section__title--light">
+        Você passa a usar IA com intenção — e o tempo volta pra você
+      </h2>
+      <p class="lead lead--light">
+        Não é aprender uma ferramenta e parar. É desenvolver um jeito novo de trabalhar:
+        delegar o repetitivo para a tecnologia e reservar sua energia para o que só você
+        pode fazer — pensar, decidir, criar, se relacionar.
+      </p>
+
+      <blockquote class="quote">
+        A tecnologia trabalha. Você vive.
+      </blockquote>
+
+      <p class="lead lead--light">
+        Você sai sabendo escolher a ferramenta certa para cada tarefa, ganha horas na semana
+        e volta a ter presença no que realmente importa. Autonomia de verdade, aplicada ao
+        seu trabalho real.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- =================================================================
+       4. PARA QUEM É  (fundo off-white)
+       ================================================================= -->
+  <section class="section section--light reveal" id="para-quem">
+    <div class="container">
+      <span class="bar-title">Feito para você</span>
+      <h2 class="section__title">Este curso é para quem quer ir além do básico</h2>
+
+      <div class="audience-grid">
+        <div class="audience-card">
+          <div class="audience-card__icon">✦</div>
+          <h3>Profissionais e gestores</h3>
+          <p>Que ainda não usam IA no dia a dia — ou usam só o essencial — e querem dar o próximo passo com segurança.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-card__icon">✦</div>
+          <h3>Quem não é da área tech</h3>
+          <p>Você não precisa saber programar, nem gostar de tecnologia. Aqui a IA é explicada em bom português, com exemplos do mundo real.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-card__icon">✦</div>
+          <h3>Quem quer ganhar tempo</h3>
+          <p>Se você sente que perde horas em tarefas que poderiam ser mais rápidas, é aqui que você aprende a virar esse jogo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =================================================================
+       5. O QUE VOCÊ VAI APRENDER  (fundo violeta)
+       ================================================================= -->
+  <section class="section section--dark reveal" id="aprender">
+    <div class="container">
+      <span class="bar-title bar-title--light">O que você sai sabendo</span>
+      <h2 class="section__title section__title--light">Da primeira ferramenta ao uso prático, aula a aula</h2>
+      <p class="lead lead--light section__intro">
+        A cada encontro você conhece novas ferramentas de IA e aprende a aplicá-las na sua
+        própria rotina. A evolução é progressiva: você começa do zero e termina usando
+        com naturalidade.
+      </p>
+
+      <ul class="learn-list">
+        <li>
+          <span class="learn-list__icon">◐</span>
+          <div>
+            <strong>Conhecer o cenário da IA</strong>
+            <p>Entenda de onde veio, o que já é possível hoje e como isso se conecta com o seu trabalho — sem hype e sem tecnês.</p>
+          </div>
+        </li>
+        <li>
+          <span class="learn-list__icon">◑</span>
+          <div>
+            <strong>Dominar as principais ferramentas</strong>
+            <p>Conheça e experimente diversas ferramentas de IA, entendendo para que serve cada uma e quando usá-la.</p>
+          </div>
+        </li>
+        <li>
+          <span class="learn-list__icon">◒</span>
+          <div>
+            <strong>Escrever bons comandos</strong>
+            <p>Aprenda a pedir do jeito certo para receber respostas úteis, precisas e prontas para usar.</p>
+          </div>
+        </li>
+        <li>
+          <span class="learn-list__icon">◓</span>
+          <div>
+            <strong>Aplicar na sua rotina real</strong>
+            <p>Leve a IA para as tarefas que você já faz: textos, análises, organização, ideias, apresentações e muito mais.</p>
+          </div>
+        </li>
+        <li>
+          <span class="learn-list__icon">◐</span>
+          <div>
+            <strong>Conectar ferramentas entre si</strong>
+            <p>Descubra combinações que multiplicam seu tempo — recursos que você nem sabia que dava para integrar.</p>
+          </div>
+        </li>
+        <li>
+          <span class="learn-list__icon">◑</span>
+          <div>
+            <strong>Trabalhar com autonomia</strong>
+            <p>Ganhe confiança para escolher, testar e adotar novas ferramentas por conta própria, muito depois do curso.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- =================================================================
+       6. COMO FUNCIONA (metodologia)  (fundo off-white)
+       ================================================================= -->
+  <section class="section section--light reveal" id="metodologia">
+    <div class="container">
+      <span class="bar-title">Como funciona</span>
+      <h2 class="section__title">Uma metodologia pensada para você entender de verdade</h2>
+
+      <div class="method-grid">
+        <div class="method-card">
+          <span class="method-card__num">20h</span>
+          <h3>Carga horária</h3>
+          <p>Curso teórico e demonstrativo, com muitos exemplos reais para você ver a IA funcionando na prática.</p>
+        </div>
+        <div class="method-card">
+          <span class="method-card__num">Ver &amp; aplicar</span>
+          <h3>Foco em entender</h3>
+          <p>Pouca prática em sala — a ideia é entender e ver funcionando. Você recebe exercícios para aplicar no seu próprio trabalho.</p>
+        </div>
+        <div class="method-card">
+          <span class="method-card__num">Turma</span>
+          <h3>Compartilhar inspira</h3>
+          <p>No último encontro, quem quiser compartilha o que desenvolveu — uma troca real que inspira toda a turma.</p>
+        </div>
+        <div class="method-card">
+          <span class="method-card__num">100%</span>
+          <h3>Online e gravado</h3>
+          <p>Todas as aulas são ao vivo, online e ficam gravadas na plataforma para você rever quando quiser.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =================================================================
+       7. A PROFESSORA  (fundo violeta escuro, destaque forte)
+       ================================================================= -->
+  <section class="section section--dark reveal" id="professora">
+    <svg class="orbit-watermark orbit-watermark--left" viewBox="0 0 200 200" aria-hidden="true">
+      <use href="#vio-orbit" />
+    </svg>
+    <div class="container teacher">
+      <div class="teacher__media">
+        <!-- PLACEHOLDER IMAGEM — foto da professora Nayara Namorato.
+             Troque o <div> abaixo por: <img src="assets/nayara.jpg" alt="Nayara Namorato"> -->
+        <div class="img-placeholder img-placeholder--teacher">
+          <span>Foto da Nayara</span>
+        </div>
+      </div>
+
+      <div class="teacher__copy">
+        <span class="bar-title bar-title--light">Quem conduz</span>
+        <h2 class="section__title section__title--light">Nayara Namorato</h2>
+        <p class="teacher__role">Fundadora da VIO FUTURO · Professora FGV, PUC Minas e Techni Method</p>
+
+        <p class="lead--light">
+          Mestre em Inovação Tecnológica pela UFMG, especialista em Design de Interação e
+          professora desde 2012. Uma trajetória que une tecnologia, inovação, negócios e
+          educação.
+        </p>
+        <p class="lead--light">
+          Atuou como executiva em grandes multinacionais, incluindo a Hotmart — empresa tech
+          pioneira no uso de Inteligência Artificial no Brasil — além de liderar projetos de
+          transformação digital e inovação para diferentes setores.
+        </p>
+        <p class="lead--light">
+          Seu diferencial é transformar temas complexos em conteúdos simples, práticos e
+          aplicáveis. No curso, o objetivo é claro: ajudar você a entender a Inteligência
+          Artificial sem complicação e usá-la de forma estratégica, criativa e útil no dia
+          a dia profissional.
+        </p>
+
+        <a href="#FORMULARIO_LINK" class="btn btn--primary btn--onDark">
+          Participe da aula inaugural gratuita
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =================================================================
+       8. SOBRE A VIO FUTURO  (fundo off-white)
+       ================================================================= -->
+  <section class="section section--light reveal" id="sobre">
+    <div class="container container--narrow about">
+      <svg class="orbit-watermark orbit-watermark--about" viewBox="0 0 200 200" aria-hidden="true">
+        <use href="#vio-orbit" />
+      </svg>
+      <span class="bar-title">Sobre a escola</span>
+      <h2 class="section__title">VIO FUTURO</h2>
+      <p class="about__meaning"><strong>V</strong>isão · <strong>I</strong>novação · <strong>O</strong>portunidade</p>
+
+      <p class="lead">
+        Uma escola que conecta pessoas ao futuro como protagonistas — não como espectadoras.
+        Existimos para quem valoriza o humano e quer que a tecnologia trabalhe a serviço disso.
+      </p>
+      <p>
+        Nossa tese é simples: tecnologia e humanidade não são lados opostos — são a mesma
+        escolha. Aqui não é sobre virar tech. É sobre ter mais tempo, mais presença e mais
+        resultado no que importa para você.
+      </p>
+
+      <blockquote class="quote quote--light">
+        Use tecnologia para liberar tempo.<br />Use o tempo pra viver experiências reais.
+      </blockquote>
+    </div>
+  </section>
+
+
+  <!-- =================================================================
+       9. PROVA SOCIAL  (fundo violeta)
+       ================================================================= -->
+  <section class="section section--dark reveal" id="depoimentos">
+    <div class="container">
+      <span class="bar-title bar-title--light">Prova social</span>
+      <h2 class="section__title section__title--light">Já são duas turmas. Agora é a sua vez.</h2>
+      <p class="lead--light section__intro">
+        Estamos na terceira turma. As duas primeiras foram um sucesso, com
+        <strong>NPS de 89</strong> — um índice que reflete gente que aprendeu e recomenda.
+      </p>
+
+      <div class="testimonial-grid">
+
+        <!-- DEPOIMENTO 1 -->
+        <figure class="testimonial">
+          <span class="testimonial__mark">&ldquo;</span>
+          <blockquote>
+            O curso me possibilitou ter mais um leque de opções de aplicação de IA no meu
+            dia a dia. O material é muito atual e atualizado, além da Nay ser uma excelente
+            professora que capta sua atenção e promove a interação na aula — o que é muito
+            importante para aulas online.
+          </blockquote>
+          <figcaption class="testimonial__author">
+            <!-- PLACEHOLDER IMAGEM — foto do aluno (troque pelo <img>) -->
+            <span class="testimonial__avatar" aria-hidden="true">foto</span>
+            <span class="testimonial__name">Nome do aluno<small>3ª turma · em breve</small></span>
+          </figcaption>
+        </figure>
+
+        <!-- DEPOIMENTO 2 -->
+        <figure class="testimonial">
+          <span class="testimonial__mark">&ldquo;</span>
+          <blockquote>
+            A Nayara é uma ótima professora, nos apresentou recursos que eu jamais tinha
+            ideia da existência. Nos abriu caminhos e leques de possibilidades.
+          </blockquote>
+          <figcaption class="testimonial__author">
+            <!-- PLACEHOLDER IMAGEM — foto do aluno (troque pelo <img>) -->
+            <span class="testimonial__avatar" aria-hidden="true">foto</span>
+            <span class="testimonial__name">Nome do aluno<small>2ª turma · em breve</small></span>
+          </figcaption>
+        </figure>
+
+        <!-- DEPOIMENTO 3 -->
+        <figure class="testimonial">
+          <span class="testimonial__mark">&ldquo;</span>
+          <blockquote>
+            Abriu minha visão quanto ao uso da IA, principalmente para melhorar o meu
+            trabalho. Estou aplicando os conceitos aprendidos e o resultado está ficando
+            bom — algumas ferramentas eu nem sabia que dava pra linkar com a IA. Um
+            aprendizado ímpar que vou levar pra toda a vida, seja profissional ou pessoal.
+          </blockquote>
+          <figcaption class="testimonial__author">
+            <!-- PLACEHOLDER IMAGEM — foto do aluno (troque pelo <img>) -->
+            <span class="testimonial__avatar" aria-hidden="true">foto</span>
+            <span class="testimonial__name">Nome do aluno<small>2ª turma · em breve</small></span>
+          </figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =================================================================
+       10. OFERTA / INVESTIMENTO  (fundo off-white)
+       ================================================================= -->
+  <section class="section section--light reveal" id="oferta">
+    <div class="container container--narrow">
+      <span class="bar-title">A oferta</span>
+      <h2 class="section__title">Comece de graça. Continue por muito menos do que vale.</h2>
+
+      <div class="offer-card">
+        <svg class="orbit-watermark orbit-watermark--offer" viewBox="0 0 200 200" aria-hidden="true">
+          <use href="#vio-orbit" />
+        </svg>
+
+        <div class="offer-card__free">
+          <span class="offer-tag">Grátis</span>
+          <h3>Aula inaugural — 08 de julho</h3>
+          <p>Uma aula aberta a todos sobre a história da IA: de onde ela veio e como chegou ao seu dia a dia. Sem custo, sem compromisso.</p>
+        </div>
+
+        <div class="offer-card__divider"></div>
+
+        <div class="offer-card__paid">
+          <h3>Curso completo · Profissional 5.0</h3>
+          <p class="offer-price"><small>Investimento</small>R$ 499</p>
+
+          <ul class="offer-list">
+            <li><span>✓</span> 20 horas de curso, ao vivo e online</li>
+            <li><span>✓</span> Segundas e quartas, das 20h às 22h</li>
+            <li><span>✓</span> De 08 de julho a 10 de agosto</li>
+            <li><span>✓</span> Muitos exemplos reais e exercícios aplicáveis</li>
+            <li><span>✓</span> <strong>Bônus:</strong> acesso às aulas gravadas por 1 ano</li>
+          </ul>
+
+          <a href="#FORMULARIO_LINK" class="btn btn--primary btn--lg btn--block">
+            Participe da aula inaugural gratuita
+          </a>
+          <p class="offer-note">Comece pela aula gratuita e decida com calma se o curso é para você.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =================================================================
+       11. LISTA DE ESPERA / CTA FINAL  (fundo violeta escuro)
+       ================================================================= -->
+  <section class="section section--dark reveal cta-final" id="lista-espera">
+    <svg class="orbit-watermark orbit-watermark--hero" viewBox="0 0 200 200" aria-hidden="true">
+      <use href="#vio-orbit" />
+    </svg>
+    <div class="container container--narrow cta-final__inner">
+      <h2 class="section__title section__title--light">As vagas são limitadas por turma</h2>
+      <p class="lead--light">
+        Se as vagas desta turma esgotarem, você pode entrar na lista de espera: basta
+        preencher o formulário de diagnóstico e ficar ciente das condições de investimento.
+        Assim, você garante prioridade na próxima abertura.
+      </p>
+      <p class="lead--light">
+        Mas o primeiro passo é o mais fácil — e é gratuito. Comece pela aula inaugural.
+      </p>
+
+      <a href="#FORMULARIO_LINK" class="btn btn--primary btn--lg btn--onDark">
+        Participe da aula inaugural gratuita
+      </a>
+      <p class="hero__date">08 de julho, 20h · online e aberta a todos</p>
+    </div>
+  </section>
+
+
+  <!-- =================================================================
+       12. RODAPÉ  (fundo violeta escuro, mais escuro)
+       ================================================================= -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <!-- PLACEHOLDER IMAGEM — logo VIO FUTURO.
+             Troque o <span> abaixo por: <img src="assets/logo-vio.svg" alt="VIO FUTURO"> -->
+        <span class="brand brand--footer">VIO<span class="brand__accent">FUTURO</span></span>
+        <p class="footer__tagline">A tecnologia trabalha. Você vive.</p>
+      </div>
+
+      <nav class="footer__links" aria-label="Links do rodapé">
+        <a href="#contexto">O curso</a>
+        <a href="#professora">A professora</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#oferta">A oferta</a>
+        <a href="#FORMULARIO_LINK">Aula gratuita</a>
+      </nav>
+    </div>
+    <div class="footer__base">
+      <span>© 2026 VIO FUTURO · Visão, Inovação, Oportunidade.</span>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
