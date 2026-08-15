@@ -689,11 +689,6 @@ a { color: inherit; }
   text-align: center;
 }
 
-/* --- CTA FINAL --- */
-.cta-final { text-align: center; }
-.cta-final__inner { display: flex; flex-direction: column; align-items: center; }
-.cta-final .lead--light { max-width: 60ch; }
-
 /* ---------- 7. RODAPÉ ---------- */
 .footer {
   background: var(--violeta-escuro);
