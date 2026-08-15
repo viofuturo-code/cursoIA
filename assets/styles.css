@@ -159,7 +159,7 @@ a { color: inherit; }
 }
 .brand img, img.brand {
   width: auto;
-  height: 40px;
+  height: 30px;
   display: block;
 }
 img.brand--footer, .brand--footer img { height: 56px; }
@@ -254,10 +254,17 @@ img.brand--footer, .brand--footer img { height: 56px; }
 /* ---------- 6. SEÇÕES ESPECÍFICAS ---------- */
 
 /* --- HERO --- */
+/* Fundo violeta da marca, com o grid fino de linhas em lavanda por cima
+   (CSS, sem imagem). A ordem importa: o grid vem antes do gradiente. */
 .hero {
   position: relative;
-  background:
+  background-color: var(--violeta);
+  background-image:
+    linear-gradient(rgba(200, 168, 233, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 168, 233, 0.07) 1px, transparent 1px),
     radial-gradient(120% 80% at 80% 0%, #5a1a9e 0%, var(--violeta) 45%, var(--violeta-escuro) 100%);
+  background-size: 44px 44px, 44px 44px, auto;
+  background-position: center top;
   color: var(--off-white);
   padding: 0 0 var(--secao-y);
   overflow: hidden;
@@ -277,12 +284,12 @@ img.brand--footer, .brand--footer img { height: 56px; }
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--lavanda);
   text-decoration: none;
 }
 .nav__link:hover { color: #fff; }
-.nav__group { display: flex; gap: 1.25rem; }
+.nav__group { display: flex; gap: 0.9rem; }
 
 .hero__inner {
   max-width: var(--container);
@@ -298,11 +305,12 @@ img.brand--footer, .brand--footer img { height: 56px; }
 .hero__headline {
   font-family: var(--f-titulo);
   font-weight: 700;
-  font-size: clamp(2.5rem, 7vw, 4.6rem);
+  font-size: clamp(2.5rem, 6.5vw, 4.4rem);
   line-height: 0.98;
   letter-spacing: -0.015em;
   margin: 0 0 1rem;
   color: #fff;
+  text-wrap: balance;
 }
 /* Segunda linha do título: o nome do módulo, subordinado ao ATUALIZE-SE */
 .hero__headline__module {
@@ -329,6 +337,70 @@ img.brand--footer, .brand--footer img { height: 56px; }
   font-size: 0.98rem;
   color: var(--lavanda);
 }
+
+/* --- MONTAGEM DO HERO (3 peças sobrepostas) --- */
+/* No mobile a montagem não existe: nada de imagem nem de vídeo.
+   A partir de 900px a área vira um palco de dimensão fixa e cada peça
+   é posicionada em coordenadas absolutas. */
+.stage { display: none; }
+
+.stage__piece { position: absolute; }
+/* Ordem de sobreposição: vídeo atrás, quadrado no meio, círculo na frente.
+   As coordenadas fazem cada peça morder a anterior, como na referência:
+   o quadrado invade a borda do vídeo e o círculo invade os dois. */
+.stage__piece--video  { z-index: 1; right: 0;    top: 0;     width: 270px; }
+.stage__piece--square { z-index: 2; left: 14px;  top: 46px;  width: 200px; }
+.stage__piece--circle { z-index: 3; left: 0;     top: 218px; width: 218px; }
+
+/* O frame guarda a proporção da peça, então o espaço já está reservado
+   antes de qualquer byte de mídia chegar. Enquanto carrega (ou se a
+   mídia falhar), o que aparece é este bloco na cor da marca. */
+.frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #DED2EC 0%, #C8A8E9 100%);
+}
+.frame--video  { aspect-ratio: 320 / 568; border: 4px solid var(--lavanda); border-radius: 12px; }
+.frame--square { aspect-ratio: 1; border-radius: 14px; }
+.frame--circle { aspect-ratio: 1; border-radius: 50%; }
+
+.frame--square,
+.frame--circle { box-shadow: 0 24px 50px -26px rgba(0, 0, 0, 0.7); }
+.frame--video  { box-shadow: 0 34px 70px -32px rgba(0, 0, 0, 0.75); }
+
+.frame__media {
+  position: absolute;
+  inset: 0;
+  z-index: 1; /* fica sobre o placeholder: ao carregar, cobre o shimmer */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Shimmer discreto enquanto a mídia não chegou. Fica atrás dela, então
+   some sozinho quando a imagem pinta — inclusive sem JavaScript. Com JS,
+   a classe is-loading sai no load ou no erro e a animação para de vez. */
+.frame.is-loading::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(100deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.42) 50%,
+    rgba(255, 255, 255, 0) 70%);
+  background-size: 220% 100%;
+  animation: frame-shimmer 1.9s linear infinite;
+}
+@keyframes frame-shimmer {
+  from { background-position: 140% 0; }
+  to   { background-position: -40% 0; }
+}
+/* Mídia que falhou: some do fluxo e o gradiente da marca fica no lugar
+   dela. Nunca ícone quebrado, nunca buraco no layout. */
+.frame.has-error .frame__media { display: none; }
 
 /* --- AUDIÊNCIA (para quem é) --- */
 .audience-grid {
@@ -757,6 +829,9 @@ img.brand--footer, .brand--footer img { height: 56px; }
   .module-grid { grid-template-columns: repeat(2, 1fr); }
   .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
   .footer__inner { grid-template-columns: 1fr auto; align-items: center; }
+  .brand img, img.brand { height: 40px; }
+  .nav__link { font-size: 0.9rem; }
+  .nav__group { gap: 1.25rem; }
 }
 
 /* Desktop */
@@ -765,6 +840,25 @@ img.brand--footer, .brand--footer img { height: 56px; }
   .testimonial-grid { grid-template-columns: repeat(3, 1fr); }
   .teacher { grid-template-columns: 0.85fr 1.15fr; }
   .teacher__media { max-width: 380px; }
+  /* Hero em duas colunas: texto à esquerda, montagem à direita. */
+  .hero__inner {
+    grid-template-columns: minmax(0, 1fr) 460px;
+    align-items: center;
+  }
+  .hero__copy { max-width: 560px; }
+  /* A montagem já dá altura à dobra: o respiro de baixo pode ser menor
+     do que o padrão das seções, senão sobra um vazio grande. */
+  .hero { padding-bottom: clamp(2.5rem, 4vw, 4rem); }
+
+  /* O palco tem altura fixa: as peças são absolutas dentro dele e o
+     espaço fica reservado antes de qualquer mídia carregar. */
+  .stage {
+    display: block;
+    position: relative;
+    width: 460px;
+    height: 500px;
+  }
+
   .module-grid { grid-template-columns: repeat(3, 1fr); }
   /* Os três planos lado a lado */
   .plans { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
