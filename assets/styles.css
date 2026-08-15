@@ -112,7 +112,7 @@ a { color: inherit; }
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-size: 0.82rem;
-  color: var(--teal);
+  color: var(--lavanda);
   margin-bottom: 1rem;
 }
 
@@ -152,7 +152,7 @@ a { color: inherit; }
   border-left-color: var(--lavanda);
 }
 
-/* Logo oficial: versão clara no topo (fundo cinza), escura no rodapé */
+/* Logo oficial (VIO_FUTURO_FundoEscuro) — sempre sobre fundo escuro */
 .brand {
   display: inline-block;
   line-height: 0;
@@ -254,17 +254,18 @@ img.brand--footer, .brand--footer img { height: 56px; }
 /* ---------- 6. SEÇÕES ESPECÍFICAS ---------- */
 
 /* --- HERO --- */
-/* Fundo claro com grid fino desenhado em CSS (sem imagem). O cinza puxa
-   um pouco para o violeta da marca, para não parecer cinza de sistema. */
+/* Fundo violeta da marca, com o grid fino de linhas em lavanda por cima
+   (CSS, sem imagem). A ordem importa: o grid vem antes do gradiente. */
 .hero {
   position: relative;
-  background-color: #F2F1F4;
+  background-color: var(--violeta);
   background-image:
-    linear-gradient(rgba(75, 0, 130, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(75, 0, 130, 0.055) 1px, transparent 1px);
-  background-size: 44px 44px;
+    linear-gradient(rgba(200, 168, 233, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 168, 233, 0.07) 1px, transparent 1px),
+    radial-gradient(120% 80% at 80% 0%, #5a1a9e 0%, var(--violeta) 45%, var(--violeta-escuro) 100%);
+  background-size: 44px 44px, 44px 44px, auto;
   background-position: center top;
-  color: var(--violeta-escuro);
+  color: var(--off-white);
   padding: 0 0 var(--secao-y);
   overflow: hidden;
 }
@@ -284,10 +285,10 @@ img.brand--footer, .brand--footer img { height: 56px; }
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 0.8rem;
-  color: var(--violeta);
+  color: var(--lavanda);
   text-decoration: none;
 }
-.nav__link:hover { color: var(--violeta-escuro); }
+.nav__link:hover { color: #fff; }
 .nav__group { display: flex; gap: 0.9rem; }
 
 .hero__inner {
@@ -308,7 +309,7 @@ img.brand--footer, .brand--footer img { height: 56px; }
   line-height: 0.98;
   letter-spacing: -0.015em;
   margin: 0 0 1rem;
-  color: var(--violeta-escuro);
+  color: #fff;
   text-wrap: balance;
 }
 /* Segunda linha do título: o nome do módulo, subordinado ao ATUALIZE-SE */
@@ -318,13 +319,13 @@ img.brand--footer, .brand--footer img { height: 56px; }
   font-size: clamp(1.25rem, 3vw, 2rem);
   line-height: 1.15;
   letter-spacing: 0.01em;
-  color: var(--violeta);
+  color: var(--lavanda);
   margin-top: 0.5rem;
 }
 .hero__sub {
   font-size: clamp(1.1rem, 2.2vw, 1.35rem);
   line-height: 1.55;
-  color: #4a3a55;
+  color: var(--lavanda);
   max-width: 32ch;
   margin: 0 0 2rem;
 }
@@ -334,7 +335,7 @@ img.brand--footer, .brand--footer img { height: 56px; }
   font-weight: 500;
   letter-spacing: 0.06em;
   font-size: 0.98rem;
-  color: var(--cobre);
+  color: var(--lavanda);
 }
 
 /* --- MONTAGEM DO HERO (3 peças sobrepostas) --- */
@@ -360,13 +361,13 @@ img.brand--footer, .brand--footer img { height: 56px; }
   overflow: hidden;
   background: linear-gradient(135deg, #DED2EC 0%, #C8A8E9 100%);
 }
-.frame--video  { aspect-ratio: 320 / 568; border: 4px solid var(--violeta); border-radius: 12px; }
+.frame--video  { aspect-ratio: 320 / 568; border: 4px solid var(--lavanda); border-radius: 12px; }
 .frame--square { aspect-ratio: 1; border-radius: 14px; }
 .frame--circle { aspect-ratio: 1; border-radius: 50%; }
 
 .frame--square,
-.frame--circle { box-shadow: 0 24px 50px -28px rgba(48, 0, 83, 0.55); }
-.frame--video  { box-shadow: 0 34px 70px -34px rgba(48, 0, 83, 0.6); }
+.frame--circle { box-shadow: 0 24px 50px -26px rgba(0, 0, 0, 0.7); }
+.frame--video  { box-shadow: 0 34px 70px -32px rgba(0, 0, 0, 0.75); }
 
 .frame__media {
   position: absolute;
