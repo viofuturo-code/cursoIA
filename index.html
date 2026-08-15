@@ -6,8 +6,10 @@
   Página única, estática (HTML + CSS + JS vanilla, sem back-end).
 
   COMO EDITAR:
-  - Substitua o link do formulário: procure por "#FORMULARIO_LINK"
-    e troque em todos os botões de CTA.
+  - Links de CTA: procure por "forms.cloud.microsoft" para achar todos.
+    Os que ainda precisam de destino próprio estão marcados com "TROQUE:".
+  - Os três planos ficam na seção #oferta (busque por "class=\"plans\"").
+  - Os módulos do curso ficam na seção #modulos.
   - Substitua as imagens: procure por comentários "PLACEHOLDER IMAGEM".
   - Estilos ficam em: assets/styles.css
   - Animações de scroll ficam em: assets/script.js
@@ -15,7 +17,7 @@
 -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Profissional 5.0: aprenda a usar Inteligência Artificial de verdade no seu dia a dia profissional. Curso da VIO FUTURO com Nayara Namorato. Aula inaugural gratuita." />
+<meta name="description" content="Profissional 5.0: aprenda a usar Inteligência Artificial de verdade no seu dia a dia profissional. Curso da VIO FUTURO com Nayara Namorato, em três formatos: gravado, ao vivo ou mentoria em grupo." />
 <title>Profissional 5.0 · IA na Prática | VIO FUTURO</title>
 
 <!-- Google Fonts: Barlow Condensed (títulos), Roboto (corpo). Georgia é serifada do sistema. -->
@@ -54,7 +56,10 @@
 
     <nav class="hero__nav">
       <span class="brand">VIO<span class="brand__accent">FUTURO</span></span>
-      <a href="#oferta" class="nav__link">A oferta</a>
+      <span class="nav__group">
+        <a href="#modulos" class="nav__link">Os módulos</a>
+        <a href="#oferta" class="nav__link">Como fazer</a>
+      </span>
     </nav>
 
     <div class="hero__inner">
@@ -66,10 +71,10 @@
           profissional, sem complicação, sem jargão, no seu ritmo.
         </p>
 
-        <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=9Co54D7gjU-wCAvVoQ5fLCbYiHoh9GJLrg4l5iycMZNUOVhHRTg0MUpCMFQwRlJQWkU3RExXQ0hFMi4u" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
-          Participe da aula inaugural gratuita
+        <a href="#oferta" class="btn btn--primary btn--lg btn--onDark">
+          Escolha como quer aprender
         </a>
-        <p class="hero__date">Aula inaugural · 08 de julho, 20h · online e aberta a todos</p>
+        <p class="hero__date">Três formatos · gravado, ao vivo ou mentoria em grupo</p>
       </div>
     </div>
   </header>
@@ -160,53 +165,98 @@
   <!-- =================================================================
        5. O QUE VOCÊ VAI APRENDER  (fundo violeta)
        ================================================================= -->
-  <section class="section section--dark reveal" id="aprender">
+  <section class="section section--dark reveal" id="modulos">
+    <svg class="orbit-watermark orbit-watermark--right" viewBox="0 0 200 200" aria-hidden="true">
+      <use href="#vio-orbit" />
+    </svg>
     <div class="container">
-      <span class="bar-title bar-title--light">O que você sai sabendo</span>
-      <h2 class="section__title section__title--light">Da primeira ferramenta ao uso prático, aula a aula</h2>
+      <span class="bar-title bar-title--light">O conteúdo</span>
+      <h2 class="section__title section__title--light">Sete módulos. Todos demonstrados na prática.</h2>
       <p class="lead lead--light section__intro">
-        A cada encontro você conhece novas ferramentas de IA e aprende a aplicá-las na sua
-        própria rotina. A evolução é progressiva: você começa do zero e termina usando
-        com naturalidade.
+        Nada de slide teórico. Em cada módulo você vê a ferramenta funcionando na tela,
+        com exemplos reais de trabalho, e sai com um exercício para aplicar no seu.
+        A evolução é progressiva: começa do zero e termina usando com naturalidade.
       </p>
 
-      <ul class="learn-list">
-        <li>
-          <span class="learn-list__icon">◐</span>
-          <div>
-            <strong>Conhecer o cenário da IA</strong>
-            <p>Entenda de onde veio, o que já é possível hoje e como isso se conecta com o seu trabalho, sem hype e sem tecnês.</p>
-          </div>
+      <ol class="module-grid">
+        <li class="module-card">
+          <span class="module-card__num">Módulo 01</span>
+          <h3>Por que IA não é modinha</h3>
+          <p>
+            De onde a Inteligência Artificial veio, o que ela já é capaz de fazer hoje e por
+            que essa virada é diferente das outras. Sem hype, sem tecnês: o contexto que faz
+            você entender o que está em jogo no seu trabalho.
+          </p>
+          <span class="module-card__tag">Demonstrado na prática</span>
         </li>
-        <li>
-          <span class="learn-list__icon">◑</span>
-          <div>
-            <strong>Dominar as principais ferramentas</strong>
-            <p>Conheça e experimente diversas ferramentas de IA, entendendo para que serve cada uma e quando usá-la.</p>
-          </div>
+
+        <li class="module-card">
+          <span class="module-card__num">Módulo 02</span>
+          <h3>Contexto: a base de tudo</h3>
+          <p>
+            Os fundamentos da IA e as formas de dar contexto. É aqui que a resposta genérica
+            vira resposta útil, e é a habilidade que sustenta todos os módulos seguintes,
+            em qualquer ferramenta.
+          </p>
+          <span class="module-card__tag">Demonstrado na prática</span>
         </li>
-        <li>
-          <span class="learn-list__icon">◒</span>
-          <div>
-            <strong>Escrever bons comandos</strong>
-            <p>Aprenda a pedir do jeito certo para receber respostas úteis, precisas e prontas para usar.</p>
-          </div>
+
+        <li class="module-card">
+          <span class="module-card__num">Módulo 03</span>
+          <h3>Muito além do chat</h3>
+          <p>
+            ChatGPT, Claude e Gemini a fundo: o que cada um faz melhor e tudo o que existe
+            dentro deles além da caixinha de conversa. A maioria usa 10% do que já tem em mãos.
+          </p>
+          <span class="module-card__tag">Demonstrado na prática</span>
         </li>
-        <li>
-          <span class="learn-list__icon">◓</span>
-          <div>
-            <strong>Aplicar na sua rotina real</strong>
-            <p>Leve a IA para as tarefas que você já faz: textos, análises, organização, ideias, apresentações e muito mais.</p>
-          </div>
+
+        <li class="module-card">
+          <span class="module-card__num">Módulo 04</span>
+          <h3>O mapa das ferramentas</h3>
+          <p>
+            Exploração ao vivo de outras ferramentas de IA: as úteis, as surpreendentes e as
+            que você nem sabia que existiam. O objetivo é você saber escolher a certa para
+            cada tarefa, em vez de forçar tudo no mesmo lugar.
+          </p>
+          <span class="module-card__tag">Demonstrado na prática</span>
         </li>
-        <li>
-          <span class="learn-list__icon">◐</span>
-          <div>
-            <strong>Conectar ferramentas entre si</strong>
-            <p>Descubra combinações que multiplicam seu tempo: recursos que você nem sabia que dava para integrar.</p>
-          </div>
+
+        <li class="module-card">
+          <span class="module-card__num">Módulo 05</span>
+          <h3>Task First: desenhar antes de automatizar</h3>
+          <p>
+            O primeiro passo para a IA trabalhar por você é enxergar o próprio processo.
+            Aqui você aprende a mapear a tarefa, separar o que é repetitivo do que é seu,
+            e só então decidir o que entregar para a máquina.
+          </p>
+          <span class="module-card__tag">Demonstrado na prática</span>
         </li>
-      </ul>
+
+        <li class="module-card">
+          <span class="module-card__num">Módulo 06</span>
+          <h3>Automatizar tarefas com IA</h3>
+          <p>
+            Do desenho à automação rodando: tarefas da sua rotina automatizadas do começo ao
+            fim, conectando ferramentas entre si. É o módulo em que o tempo aparece de volta
+            na sua semana.
+          </p>
+          <span class="module-card__tag">Demonstrado na prática</span>
+        </li>
+
+        <li class="module-card module-card--wide">
+          <span class="module-card__num">Módulo 07</span>
+          <h3>As 4 mentalidades atemporais + cases da turma</h3>
+          <p>
+            Ferramentas mudam todo mês. As mentalidades que fazem você aproveitá-las, não.
+            Mente Aberta, Mente Ágil, Mente Ativa e Mente Alinhada: o que fica com você
+            depois que a ferramenta da vez for substituída. No encerramento, quem quiser
+            apresenta o que construiu durante o curso, uma troca que costuma render mais
+            ideias do que qualquer aula.
+          </p>
+          <span class="module-card__tag">Encerramento · cases reais</span>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -223,22 +273,22 @@
         <div class="method-card">
           <span class="method-card__num">20h</span>
           <h3>Carga horária</h3>
-          <p>Curso teórico e demonstrativo, com muitos exemplos reais para você ver a IA funcionando na prática.</p>
+          <p>Sete módulos demonstrativos, com muitos exemplos reais para você ver a IA funcionando na prática.</p>
+        </div>
+        <div class="method-card">
+          <span class="method-card__num">Do zero</span>
+          <h3>Ninguém fica para trás</h3>
+          <p>Toda turma começa com conhecimento zero ou básico. A gente avança junto, no mesmo ritmo, sem pressa e sem jargão.</p>
         </div>
         <div class="method-card">
           <span class="method-card__num">Ver &amp; aplicar</span>
-          <h3>Foco em entender</h3>
-          <p>Pouca prática em sala: a ideia é entender e ver funcionando. Você recebe exercícios para aplicar no seu próprio trabalho.</p>
-        </div>
-        <div class="method-card">
-          <span class="method-card__num">Turma</span>
-          <h3>Compartilhar inspira</h3>
-          <p>No último encontro, quem quiser compartilha o que desenvolveu, uma troca real que inspira toda a turma.</p>
+          <h3>Entender de verdade</h3>
+          <p>Você vê funcionando na tela e recebe exercícios para aplicar no seu próprio trabalho, entre um encontro e outro.</p>
         </div>
         <div class="method-card">
           <span class="method-card__num">100%</span>
           <h3>Online e gravado</h3>
-          <p>Todas as aulas são ao vivo, online e ficam gravadas na plataforma para você rever quando quiser.</p>
+          <p>Tudo acontece online e fica gravado na plataforma. Faltou um encontro ou quer rever? Está lá.</p>
         </div>
       </div>
     </div>
@@ -281,8 +331,8 @@
           a dia profissional.
         </p>
 
-        <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=9Co54D7gjU-wCAvVoQ5fLCbYiHoh9GJLrg4l5iycMZNUOVhHRTg0MUpCMFQwRlJQWkU3RExXQ0hFMi4u" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--onDark">
-          Participe da aula inaugural gratuita
+        <a href="#oferta" class="btn btn--primary btn--onDark">
+          Ver as três formas de fazer
         </a>
       </div>
     </div>
@@ -381,47 +431,119 @@
        10. OFERTA / INVESTIMENTO  (fundo off-white)
        ================================================================= -->
   <section class="section section--light reveal" id="oferta">
-    <div class="container container--offer">
-      <span class="bar-title">A oferta</span>
-      <h2 class="section__title">Comece de graça. Continue por muito menos do que vale.</h2>
+    <svg class="orbit-watermark orbit-watermark--offer" viewBox="0 0 200 200" aria-hidden="true">
+      <use href="#vio-orbit" />
+    </svg>
+    <div class="container">
+      <span class="bar-title">Como fazer</span>
+      <h2 class="section__title">O mesmo conteúdo, três jeitos de aprender.<br />Escolha o que combina com <em>você</em>.</h2>
+      <p class="lead section__intro plans__intro">
+        Ninguém aprende do mesmo jeito. Tem quem renda mais sozinho, no próprio horário.
+        Tem quem precise de dia marcado e turma junto. E tem quem queira a IA aplicada
+        direto na realidade da própria empresa. Os três caminhos levam ao mesmo lugar.
+      </p>
 
-      <div class="offer-card">
-        <svg class="orbit-watermark orbit-watermark--offer" viewBox="0 0 200 200" aria-hidden="true">
-          <use href="#vio-orbit" />
-        </svg>
+      <div class="plans">
 
-        <div class="offer-card__free">
-          <span class="offer-tag">Grátis</span>
-          <h3>Aula inaugural · 08 de julho</h3>
-          <p>Uma aula aberta a todos sobre a história da IA: de onde ela veio e como chegou ao seu dia a dia. Sem custo, sem compromisso.</p>
-        </div>
+        <!-- =============== PLANO 1 — GRAVADO =============== -->
+        <article class="plan">
+          <span class="plan__badge plan__badge--soon">Em breve</span>
+          <span class="plan__kicker">No seu ritmo</span>
+          <h3 class="plan__name">Curso gravado</h3>
 
-        <div class="offer-card__paid">
-          <h3>Curso completo · Profissional 5.0</h3>
+          <p class="plan__price"><span class="plan__price__value">R$ 97</span></p>
 
-          <div class="offer-price">
-            <small>Investimento</small>
-            <p class="offer-price__main">
-              <span class="offer-price__x">12x</span>
-              <span class="offer-price__value">R$ 49,64</span>
-            </p>
-            <p class="offer-price__cash">ou <strong>R$ 480,00</strong> à vista</p>
-          </div>
+          <p class="plan__for">
+            Para quem tem disciplina, horário imprevisível e quer economizar.
+          </p>
 
           <ul class="offer-list">
-            <li><span>✓</span> 20 horas de curso, ao vivo e online</li>
-            <li><span>✓</span> Segundas e quartas, das 20h às 22h</li>
-            <li><span>✓</span> De 08 de julho a 10 de agosto</li>
-            <li><span>✓</span> Muitos exemplos reais e exercícios aplicáveis</li>
-            <li><span>✓</span> <strong>Bônus:</strong> materiais complementares (apostila, podcast, entre outros)</li>
-            <li><span>✓</span> <strong>Bônus:</strong> acesso às aulas gravadas por 1 ano</li>
+            <li><span>✓</span> Todo o conteúdo gravado na plataforma, módulo a módulo</li>
+            <li><span>✓</span> Acesso por 6 meses, no horário que der na sua semana</li>
+            <li><span>✓</span> Você avança na sua velocidade, pausa e volta quando quiser</li>
+            <li><span>✓</span> <strong>Bônus:</strong> quem entrar primeiro recebe todas as atualizações do curso durante os 6 meses</li>
           </ul>
 
-          <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=9Co54D7gjU-wCAvVoQ5fLCbYiHoh9GJLrg4l5iycMZNUOVhHRTg0MUpCMFQwRlJQWkU3RExXQ0hFMi4u" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg btn--block">
-            Participe da aula inaugural gratuita
-          </a>
-          <p class="offer-note">Comece pela aula gratuita e decida com calma se o curso é para você.</p>
-        </div>
+          <div class="plan__cta">
+            <!-- TROQUE: link da lista de avisos do curso gravado -->
+            <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=9Co54D7gjU-wCAvVoQ5fLCbYiHoh9GJLrg4l5iycMZNUOVhHRTg0MUpCMFQwRlJQWkU3RExXQ0hFMi4u" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--block">
+              Me avise quando lançar
+            </a>
+            <p class="offer-note">
+              Um aviso honesto: economizar só compensa se você fizer. Curso parado na
+              plataforma não libera tempo nenhum.
+            </p>
+          </div>
+        </article>
+
+        <!-- =============== PLANO 2 — AO VIVO (destaque) =============== -->
+        <article class="plan plan--featured">
+          <span class="plan__badge plan__badge--hot">Restam poucas vagas</span>
+          <span class="plan__kicker">Com turma e hora marcada</span>
+          <h3 class="plan__name">Curso ao vivo</h3>
+
+          <p class="plan__price"><span class="plan__price__value">R$ 497</span></p>
+
+          <p class="plan__for">
+            Para quem quer acompanhamento e precisa de um compromisso na agenda para
+            realmente estudar.
+          </p>
+
+          <ul class="offer-list">
+            <li><span>✓</span> 7 encontros ao vivo · 20 horas de conteúdo</li>
+            <li><span>✓</span> Quartas-feiras, das 19h às 22h</li>
+            <li><span>✓</span> <strong>Início em 30 de setembro</strong></li>
+            <li><span>✓</span> Pausas para dúvidas e momentos de prática junto com a turma</li>
+            <li><span>✓</span> Toda turma começa do zero ou do básico: avançamos juntos</li>
+            <li><span>✓</span> Tudo fica gravado na plataforma para rever quando quiser</li>
+          </ul>
+
+          <div class="plan__cta">
+            <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=9Co54D7gjU-wCAvVoQ5fLCbYiHoh9GJLrg4l5iycMZNUOVhHRTg0MUpCMFQwRlJQWkU3RExXQ0hFMi4u" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--block">
+              Quero fazer parte
+            </a>
+            <p class="offer-note">
+              A turma já está quase completa. As vagas são limitadas para manter a
+              conversa possível.
+            </p>
+          </div>
+        </article>
+
+        <!-- =============== PLANO 3 — MENTORIA =============== -->
+        <article class="plan">
+          <span class="plan__badge plan__badge--group">Grupo fechado</span>
+          <span class="plan__kicker">Na sua realidade</span>
+          <h3 class="plan__name">Mentoria personalizada</h3>
+
+          <p class="plan__price">
+            <span class="plan__price__value">R$ 997</span>
+            <small>por pessoa · turma a partir de 5</small>
+          </p>
+
+          <p class="plan__for">
+            Para times, sócios e grupos de empresários que querem aprender juntos, com as
+            coisas da empresa em cima da mesa.
+          </p>
+
+          <ul class="offer-list">
+            <li><span>✓</span> Conteúdo 100% direcionado à prática de vocês</li>
+            <li><span>✓</span> Pegamos processos reais da empresa e implementamos junto</li>
+            <li><span>✓</span> Grupo fechado: dá para abrir o que é interno entre gente de confiança</li>
+            <li><span>✓</span> Encontros combinados com o grupo, no ritmo de vocês</li>
+          </ul>
+
+          <div class="plan__cta">
+            <!-- TROQUE: link do formulário de mentoria (grupo próprio) -->
+            <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=9Co54D7gjU-wCAvVoQ5fLCbYiHoh9GJLrg4l5iycMZNUOVhHRTg0MUpCMFQwRlJQWkU3RExXQ0hFMi4u" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--block">
+              Tenho um grupo e quero mentoria
+            </a>
+            <!-- TROQUE: link do formulário de mentoria (entrar em grupo aberto) -->
+            <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=9Co54D7gjU-wCAvVoQ5fLCbYiHoh9GJLrg4l5iycMZNUOVhHRTg0MUpCMFQwRlJQWkU3RExXQ0hFMi4u" target="_blank" rel="noopener noreferrer" class="plan__alt">
+              Não tenho grupo, quero entrar em um →
+            </a>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
@@ -435,20 +557,22 @@
       <use href="#vio-orbit" />
     </svg>
     <div class="container container--narrow cta-final__inner">
-      <h2 class="section__title section__title--light">As vagas são limitadas por turma</h2>
+      <h2 class="section__title section__title--light">A turma ao vivo começa em 30 de setembro</h2>
       <p class="lead--light">
-        Se as vagas desta turma esgotarem, você pode entrar na lista de espera: basta
-        preencher o formulário de diagnóstico e ficar ciente das condições de investimento.
-        Assim, você garante prioridade na próxima abertura.
+        As vagas são limitadas de propósito: turma pequena é o que permite parar,
+        tirar dúvida e praticar junto. Se esta encher, você entra na lista de espera e
+        ganha prioridade na próxima abertura.
       </p>
       <p class="lead--light">
-        Mas o primeiro passo é o mais fácil, e é gratuito. Comece pela aula inaugural.
+        E se o formato ao vivo não for o seu, o conteúdo é o mesmo nos outros dois
+        caminhos. O que não dá é deixar mais um semestre passar usando 10% do que a
+        IA já poderia estar fazendo por você.
       </p>
 
       <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=9Co54D7gjU-wCAvVoQ5fLCbYiHoh9GJLrg4l5iycMZNUOVhHRTg0MUpCMFQwRlJQWkU3RExXQ0hFMi4u" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg btn--onDark">
-        Participe da aula inaugural gratuita
+        Quero fazer parte
       </a>
-      <p class="hero__date">08 de julho, 20h · online e aberta a todos</p>
+      <p class="hero__date">Quartas, 19h às 22h · 7 encontros · online e gravado</p>
     </div>
   </section>
 
@@ -467,10 +591,11 @@
 
       <nav class="footer__links" aria-label="Links do rodapé">
         <a href="#contexto">O curso</a>
+        <a href="#modulos">Os módulos</a>
         <a href="#professora">A professora</a>
         <a href="#depoimentos">Depoimentos</a>
-        <a href="#oferta">A oferta</a>
-        <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=9Co54D7gjU-wCAvVoQ5fLCbYiHoh9GJLrg4l5iycMZNUOVhHRTg0MUpCMFQwRlJQWkU3RExXQ0hFMi4u" target="_blank" rel="noopener noreferrer">Aula gratuita</a>
+        <a href="#oferta">Como fazer</a>
+        <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=9Co54D7gjU-wCAvVoQ5fLCbYiHoh9GJLrg4l5iycMZNUOVhHRTg0MUpCMFQwRlJQWkU3RExXQ0hFMi4u" target="_blank" rel="noopener noreferrer">Inscrição</a>
       </nav>
     </div>
     <div class="footer__base">

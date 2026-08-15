@@ -279,6 +279,7 @@ a { color: inherit; }
   text-decoration: none;
 }
 .nav__link:hover { color: #fff; }
+.nav__group { display: flex; gap: 1.25rem; }
 
 .hero__inner {
   max-width: var(--container);
@@ -346,37 +347,69 @@ a { color: inherit; }
 }
 .audience-card p { margin: 0; font-size: 1rem; color: #4a3a55; }
 
-/* --- O QUE VAI APRENDER (lista) --- */
-.learn-list {
+/* --- MÓDULOS (o conteúdo) --- */
+.module-grid {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 3rem 0 0;
   display: grid;
-  gap: 1.75rem;
+  gap: 1.25rem;
 }
-.learn-list li {
+.module-card {
   display: flex;
-  gap: 1.1rem;
-  align-items: flex-start;
-  padding-bottom: 1.75rem;
-  border-bottom: 1px solid rgba(200,168,233,0.2);
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(200, 168, 233, 0.22);
+  border-radius: var(--radio);
+  padding: 1.75rem 1.6rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
-.learn-list li:last-child { border-bottom: none; }
-.learn-list__icon {
-  flex: 0 0 auto;
-  font-size: 1.5rem;
-  color: var(--lavanda);
-  line-height: 1.2;
+.module-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(200, 168, 233, 0.5);
 }
-.learn-list strong {
-  display: block;
+/* Módulo de encerramento: ocupa a linha inteira e fecha a grade */
+.module-card--wide {
+  grid-column: 1 / -1;
+  background: rgba(200, 168, 233, 0.1);
+  border-color: rgba(200, 168, 233, 0.4);
+}
+.module-card__num {
   font-family: var(--f-titulo);
   font-weight: 600;
-  font-size: 1.35rem;
-  color: #fff;
-  margin-bottom: 0.25rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--lavanda);
+  opacity: 0.9;
 }
-.learn-list p { margin: 0; color: var(--lavanda); }
+.module-card h3 {
+  font-family: var(--f-titulo);
+  font-weight: 600;
+  font-size: 1.45rem;
+  line-height: 1.15;
+  margin: 0.5rem 0 0.7rem;
+  color: #fff;
+}
+.module-card p {
+  margin: 0 0 1.4rem;
+  font-size: 1rem;
+  color: var(--lavanda);
+}
+/* Selo "demonstrado na prática" — ancorado no rodapé do card */
+.module-card__tag {
+  margin-top: auto;
+  align-self: flex-start;
+  font-family: var(--f-titulo);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--violeta-escuro);
+  background: var(--lavanda);
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+}
 
 /* --- METODOLOGIA (cards) --- */
 .method-grid {
@@ -504,31 +537,120 @@ a { color: inherit; }
   text-transform: none;
 }
 
-/* --- OFERTA --- */
-.offer-card {
+/* --- OFERTA: OS TRÊS PLANOS --- */
+.plans__intro { max-width: 62ch; }
+
+.plans {
+  display: grid;
+  gap: 1.75rem;
+  margin-top: 3rem;
+}
+
+/* Cada plano é um cartão de altura cheia: o CTA fica sempre no rodapé,
+   alinhado entre as três colunas mesmo com listas de tamanhos diferentes. */
+.plan {
   position: relative;
+  display: flex;
+  flex-direction: column;
   background: #fff;
   border-radius: 24px;
-  margin-top: 2.5rem;
-  overflow: hidden;
-  box-shadow: 0 40px 80px -40px rgba(48,0,83,0.45);
-  border: 1px solid rgba(75,0,130,0.1);
+  padding: 2.5rem 1.75rem 2rem;
+  border: 1px solid rgba(75, 0, 130, 0.1);
+  box-shadow: 0 30px 60px -40px rgba(48, 0, 83, 0.45);
 }
-.offer-card__free {
-  background: linear-gradient(120deg, var(--violeta) 0%, var(--violeta-escuro) 100%);
-  color: var(--off-white);
-  padding: 2.5rem 2rem;
-  position: relative;
-  z-index: 2;
+/* Plano em destaque: a turma ao vivo é a oferta principal. */
+.plan--featured {
+  border: 2px solid var(--violeta);
+  box-shadow: 0 40px 80px -40px rgba(48, 0, 83, 0.6);
 }
-.offer-card__free h3 {
+
+.plan__badge {
+  position: absolute;
+  top: -0.85rem;
+  left: 1.75rem;
   font-family: var(--f-titulo);
-  font-weight: 600;
-  font-size: 1.7rem;
-  margin: 0.6rem 0 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.74rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
   color: #fff;
 }
-.offer-card__free p { margin: 0; color: var(--lavanda); }
+.plan__badge--soon  { background: var(--cobre); }
+.plan__badge--hot   { background: var(--violeta); }
+.plan__badge--group { background: var(--teal); }
+
+.plan__kicker {
+  font-family: var(--f-titulo);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--cobre);
+}
+.plan__name {
+  font-family: var(--f-titulo);
+  font-weight: 600;
+  font-size: 1.75rem;
+  line-height: 1.1;
+  margin: 0.3rem 0 0;
+  color: var(--violeta);
+}
+
+.plan__price {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(75, 0, 130, 0.1);
+}
+.plan__price__value {
+  font-family: var(--f-titulo);
+  font-weight: 700;
+  font-size: clamp(2.8rem, 6vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -0.015em;
+  color: var(--violeta-escuro);
+  white-space: nowrap;
+}
+.plan__price small {
+  font-family: var(--f-corpo);
+  font-size: 0.86rem;
+  color: #6a5a75;
+  margin-top: 0.45rem;
+}
+
+/* "Ideal para quem..." — a frase que faz a pessoa se reconhecer no plano */
+.plan__for {
+  font-family: var(--f-quote);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--violeta);
+  margin: 0 0 1.5rem;
+}
+
+.plan .offer-list { margin-bottom: 1.75rem; }
+
+/* Empurra o CTA para o fim do cartão */
+.plan__cta { margin-top: auto; }
+.plan__cta .offer-note { text-align: left; }
+
+.plan__alt {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-family: var(--f-titulo);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  font-size: 0.95rem;
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 2px solid rgba(0, 122, 116, 0.3);
+  padding-bottom: 2px;
+}
+.plan__alt:hover { border-bottom-color: var(--teal); }
+
 .offer-tag {
   display: inline-block;
   font-family: var(--f-titulo);
@@ -541,62 +663,6 @@ a { color: inherit; }
   padding: 0.3rem 0.9rem;
   border-radius: 999px;
 }
-.offer-card__paid { padding: 2.5rem 2rem 2.75rem; }
-.offer-card__paid h3 {
-  font-family: var(--f-titulo);
-  font-weight: 600;
-  font-size: 1.7rem;
-  margin: 0;
-  color: var(--violeta);
-}
-.offer-price {
-  display: flex;
-  flex-direction: column;
-  margin: 0.8rem 0 1.5rem;
-  line-height: 1.05;
-}
-.offer-price small {
-  font-family: var(--f-corpo);
-  font-weight: 400;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--cobre);
-  margin-bottom: 0.3rem;
-}
-/* Valor parcelado — destaque principal (12x R$ 49,64) */
-.offer-price__main {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.35rem 0.5rem;
-  margin: 0;
-  line-height: 1;
-}
-.offer-price__x {
-  font-family: var(--f-titulo);
-  font-weight: 600;
-  font-size: clamp(1.7rem, 3.4vw, 2.4rem);
-  color: var(--violeta-escuro);
-}
-.offer-price__value {
-  font-family: var(--f-titulo);
-  font-weight: 700;
-  /* Cresce bem no desktop; base robusta no mobile. Não quebra o número. */
-  font-size: clamp(3.2rem, 6.5vw, 5rem);
-  color: var(--violeta);
-  letter-spacing: -0.015em;
-  white-space: nowrap;
-}
-/* Valor à vista — informação secundária, com menor destaque */
-.offer-price__cash {
-  font-family: var(--f-corpo);
-  font-weight: 400;
-  font-size: 0.92rem;
-  color: #9488a0;
-  margin: 0.7rem 0 0;
-}
-.offer-price__cash strong { font-weight: 600; color: #6a5a75; }
 .offer-list {
   list-style: none;
   padding: 0;
@@ -692,6 +758,7 @@ a { color: inherit; }
 @media (min-width: 640px) {
   .audience-grid { grid-template-columns: repeat(3, 1fr); }
   .method-grid { grid-template-columns: repeat(2, 1fr); }
+  .module-grid { grid-template-columns: repeat(2, 1fr); }
   .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
   .footer__inner { grid-template-columns: 1fr auto; align-items: center; }
 }
@@ -702,11 +769,11 @@ a { color: inherit; }
   .testimonial-grid { grid-template-columns: repeat(3, 1fr); }
   .teacher { grid-template-columns: 0.85fr 1.15fr; }
   .teacher__media { max-width: 380px; }
-  .learn-list {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 3rem;
-  }
-  .offer-card { display: grid; grid-template-columns: 0.9fr 1.1fr; align-items: stretch; }
-  .offer-card__free { display: flex; flex-direction: column; justify-content: center; }
-  .offer-card__paid { padding: 3rem 2.75rem 3rem; }
+  .module-grid { grid-template-columns: repeat(3, 1fr); }
+  /* Os três planos lado a lado */
+  .plans { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .plan { padding: 2.75rem 2rem 2.25rem; }
+  /* Reserva duas linhas para o nome do plano: assim os três preços
+     ficam na mesma altura, mesmo quando um título quebra. */
+  .plan__name { min-height: 2.2em; }
 }
