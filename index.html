@@ -1,22 +1,25 @@
 <!--
   =====================================================================
   VIO FUTURO — Landing Page de Vendas
-  Curso: Profissional 5.0 — Inteligência Artificial na Prática
+  Curso: ATUALIZE-SE — Módulo: Inteligência Artificial
   =====================================================================
   Página única, estática (HTML + CSS + JS vanilla, sem back-end).
 
   COMO EDITAR:
-  - Substitua o link do formulário: procure por "#FORMULARIO_LINK"
-    e troque em todos os botões de CTA.
-  - Substitua as imagens: procure por comentários "PLACEHOLDER IMAGEM".
+  - Links de CTA: procure por "docs.google.com/forms" para achar todos.
+    Cada plano tem o seu formulário; o rodapé usa o da turma ao vivo.
+  - Os três planos ficam na seção #oferta (busque por "class=\"plans\"").
+  - Os módulos do curso ficam na seção #modulos.
+  - Marca: assets/logo-vio-futuro.svg (topo e rodapé) e o símbolo oficial
+    inline no <defs> "vio-orbit", reaproveitado como grafismo de fundo.
   - Estilos ficam em: assets/styles.css
   - Animações de scroll ficam em: assets/script.js
   =====================================================================
 -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Profissional 5.0: aprenda a usar Inteligência Artificial de verdade no seu dia a dia profissional. Curso da VIO FUTURO com Nayara Namorato. Aula inaugural gratuita." />
-<title>Profissional 5.0 · IA na Prática | VIO FUTURO</title>
+<meta name="description" content="ATUALIZE-SE, módulo de Inteligência Artificial: aprenda a usar IA de verdade no seu dia a dia profissional. Curso da VIO FUTURO com Nayara Namorato, em três formatos: gravado, ao vivo ou mentoria em grupo." />
+<title>ATUALIZE-SE · Inteligência Artificial | VIO FUTURO</title>
 
 <!-- Google Fonts: Barlow Condensed (títulos), Roboto (corpo). Georgia é serifada do sistema. -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,16 +31,18 @@
 <body>
 
   <!-- =================================================================
-       SÍMBOLO DA MARCA — 4 elipses em órbita (SVG reutilizável)
-       Definido uma vez aqui e reutilizado como marca d'água via <use>.
+       SÍMBOLO DA MARCA — órbita VIO (SVG reutilizável)
+       Definido uma vez aqui e reutilizado como grafismo de fundo via <use>.
        ================================================================= -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
+      <!-- Símbolo oficial da marca (VIO_Simbolo_FundoEscuro.svg).
+           stroke="currentColor" deixa cada seção pintar na sua cor. -->
       <g id="vio-orbit">
-        <ellipse cx="100" cy="100" rx="90" ry="38" transform="rotate(0 100 100)" />
-        <ellipse cx="100" cy="100" rx="90" ry="38" transform="rotate(45 100 100)" />
-        <ellipse cx="100" cy="100" rx="90" ry="38" transform="rotate(90 100 100)" />
-        <ellipse cx="100" cy="100" rx="90" ry="38" transform="rotate(135 100 100)" />
+        <path d="M157.428 289.426C201.08 361.031 265.76 401.221 301.896 379.192C338.031 357.163 331.938 281.258 288.287 209.652C244.635 138.047 179.955 97.8579 143.819 119.887C107.683 141.916 113.777 217.821 157.428 289.426Z" stroke="currentColor"/>
+        <path d="M154.153 212.823C112.877 285.824 109.281 361.888 146.121 382.718C182.961 403.548 246.286 361.256 287.562 288.255C328.837 215.255 332.434 139.19 295.594 118.36C258.754 97.5303 195.429 139.823 154.153 212.823Z" stroke="currentColor"/>
+        <path d="M257.869 186.003C185.053 144.403 109.005 140.469 88.0118 177.216C67.0184 213.963 109.029 277.475 181.846 319.075C254.662 360.675 330.71 364.609 351.703 327.862C372.696 291.115 330.686 227.603 257.869 186.003Z" stroke="currentColor"/>
+        <path d="M181.563 183.133C109.004 225.18 67.3847 288.95 88.6039 325.567C109.823 362.184 185.845 357.782 258.404 315.735C330.963 273.687 372.582 209.917 351.363 173.301C330.144 136.684 254.122 141.086 181.563 183.133Z" stroke="currentColor"/>
       </g>
     </defs>
   </svg>
@@ -48,28 +53,35 @@
        ================================================================= -->
   <header class="hero section--dark">
     <!-- Marca d'água: órbita VIO -->
-    <svg class="orbit-watermark orbit-watermark--hero" viewBox="0 0 200 200" aria-hidden="true">
+    <svg class="orbit-watermark orbit-watermark--hero" viewBox="63 93 315 315" aria-hidden="true">
       <use href="#vio-orbit" />
     </svg>
 
     <nav class="hero__nav">
-      <span class="brand">VIO<span class="brand__accent">FUTURO</span></span>
-      <a href="#oferta" class="nav__link">A oferta</a>
+      <a href="#" class="brand" aria-label="VIO FUTURO — início">
+        <img src="assets/logo-vio-futuro.svg" alt="VIO FUTURO" width="774" height="294" />
+      </a>
+      <span class="nav__group">
+        <a href="#modulos" class="nav__link">Os módulos</a>
+        <a href="#oferta" class="nav__link">Como fazer</a>
+      </span>
     </nav>
 
     <div class="hero__inner">
       <div class="hero__copy">
-        <span class="eyebrow">Curso online · 3ª turma</span>
-        <h1 class="hero__headline">Profissional 5.0:<br />Inteligência Artificial na Prática</h1>
+        <span class="eyebrow">Curso online · nova turma</span>
+        <h1 class="hero__headline">ATUALIZE-SE
+          <span class="hero__headline__module">Módulo: Inteligência Artificial</span>
+        </h1>
         <p class="hero__sub">
           Saia do zero (ou do básico) e comece a usar IA de verdade no seu dia a dia
           profissional, sem complicação, sem jargão, no seu ritmo.
         </p>
 
-        <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=9Co54D7gjU-wCAvVoQ5fLCbYiHoh9GJLrg4l5iycMZNUOVhHRTg0MUpCMFQwRlJQWkU3RExXQ0hFMi4u" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
-          Participe da aula inaugural gratuita
+        <a href="#oferta" class="btn btn--primary btn--lg btn--onDark">
+          Escolha como quer aprender
         </a>
-        <p class="hero__date">Aula inaugural · 08 de julho, 20h · online e aberta a todos</p>
+        <p class="hero__date">Três formatos · gravado, ao vivo ou mentoria em grupo</p>
       </div>
     </div>
   </header>
@@ -100,7 +112,7 @@
        3. A TRANSFORMAÇÃO / PROMESSA  (fundo violeta)
        ================================================================= -->
   <section class="section section--dark reveal" id="transformacao">
-    <svg class="orbit-watermark orbit-watermark--right" viewBox="0 0 200 200" aria-hidden="true">
+    <svg class="orbit-watermark orbit-watermark--right" viewBox="63 93 315 315" aria-hidden="true">
       <use href="#vio-orbit" />
     </svg>
     <div class="container container--narrow">
@@ -160,53 +172,93 @@
   <!-- =================================================================
        5. O QUE VOCÊ VAI APRENDER  (fundo violeta)
        ================================================================= -->
-  <section class="section section--dark reveal" id="aprender">
+  <section class="section section--dark reveal" id="modulos">
+    <svg class="orbit-watermark orbit-watermark--right" viewBox="63 93 315 315" aria-hidden="true">
+      <use href="#vio-orbit" />
+    </svg>
     <div class="container">
-      <span class="bar-title bar-title--light">O que você sai sabendo</span>
-      <h2 class="section__title section__title--light">Da primeira ferramenta ao uso prático, aula a aula</h2>
-      <p class="lead lead--light section__intro">
-        A cada encontro você conhece novas ferramentas de IA e aprende a aplicá-las na sua
-        própria rotina. A evolução é progressiva: você começa do zero e termina usando
-        com naturalidade.
-      </p>
+      <span class="bar-title bar-title--light">O conteúdo</span>
+      <h2 class="section__title section__title--light">Sete módulos. Todos demonstrados na prática.</h2>
 
-      <ul class="learn-list">
-        <li>
-          <span class="learn-list__icon">◐</span>
-          <div>
-            <strong>Conhecer o cenário da IA</strong>
-            <p>Entenda de onde veio, o que já é possível hoje e como isso se conecta com o seu trabalho, sem hype e sem tecnês.</p>
-          </div>
+      <ol class="module-grid">
+        <li class="module-card">
+          <span class="module-card__num">Módulo 01</span>
+          <h3>Por que IA não é modinha</h3>
+          <p>
+            De onde a Inteligência Artificial veio, o que ela já é capaz de fazer hoje e por
+            que essa virada é diferente das outras. Sem hype, sem tecnês: o contexto que faz
+            você entender o que está em jogo no seu trabalho.
+          </p>
+          <span class="module-card__tag">Teórico</span>
         </li>
-        <li>
-          <span class="learn-list__icon">◑</span>
-          <div>
-            <strong>Dominar as principais ferramentas</strong>
-            <p>Conheça e experimente diversas ferramentas de IA, entendendo para que serve cada uma e quando usá-la.</p>
-          </div>
+
+        <li class="module-card">
+          <span class="module-card__num">Módulo 02</span>
+          <h3>Contexto: a base de tudo</h3>
+          <p>
+            Os fundamentos da IA e as formas de dar contexto. É aqui que a resposta genérica
+            vira resposta útil, e é a habilidade que sustenta todos os módulos seguintes,
+            em qualquer ferramenta.
+          </p>
+          <span class="module-card__tag">Demonstrado na prática</span>
         </li>
-        <li>
-          <span class="learn-list__icon">◒</span>
-          <div>
-            <strong>Escrever bons comandos</strong>
-            <p>Aprenda a pedir do jeito certo para receber respostas úteis, precisas e prontas para usar.</p>
-          </div>
+
+        <li class="module-card">
+          <span class="module-card__num">Módulo 03</span>
+          <h3>Muito além do chat</h3>
+          <p>
+            ChatGPT, Claude e Gemini a fundo: o que cada um faz melhor e tudo o que existe
+            dentro deles além da caixinha de conversa. A maioria usa 10% do que já tem em mãos.
+          </p>
+          <span class="module-card__tag">Demonstrado na prática</span>
         </li>
-        <li>
-          <span class="learn-list__icon">◓</span>
-          <div>
-            <strong>Aplicar na sua rotina real</strong>
-            <p>Leve a IA para as tarefas que você já faz: textos, análises, organização, ideias, apresentações e muito mais.</p>
-          </div>
+
+        <li class="module-card">
+          <span class="module-card__num">Módulo 04</span>
+          <h3>O mapa das ferramentas</h3>
+          <p>
+            Um passeio por outras ferramentas de IA: as úteis, as surpreendentes e as que
+            você nem sabia que existiam. O objetivo é você saber escolher a certa para
+            cada tarefa, em vez de forçar tudo no mesmo lugar.
+          </p>
+          <span class="module-card__tag">Demonstrado na prática</span>
         </li>
-        <li>
-          <span class="learn-list__icon">◐</span>
-          <div>
-            <strong>Conectar ferramentas entre si</strong>
-            <p>Descubra combinações que multiplicam seu tempo: recursos que você nem sabia que dava para integrar.</p>
-          </div>
+
+        <li class="module-card">
+          <span class="module-card__num">Módulo 05</span>
+          <h3>Task First: desenhar antes de automatizar</h3>
+          <p>
+            O primeiro passo para a IA trabalhar por você é enxergar o próprio processo.
+            Aqui você aprende a mapear a tarefa, separar o que é repetitivo do que é seu,
+            e só então decidir o que entregar para a máquina.
+          </p>
+          <span class="module-card__tag">Demonstrado na prática</span>
         </li>
-      </ul>
+
+        <li class="module-card">
+          <span class="module-card__num">Módulo 06</span>
+          <h3>Automatizar tarefas com IA</h3>
+          <p>
+            Do desenho à automação rodando: tarefas da sua rotina automatizadas do começo ao
+            fim, conectando ferramentas entre si. É o módulo em que o tempo aparece de volta
+            na sua semana.
+          </p>
+          <span class="module-card__tag">Demonstrado na prática</span>
+        </li>
+
+        <li class="module-card module-card--wide">
+          <span class="module-card__num">Módulo 07</span>
+          <h3>As 4 mentalidades atemporais + cases práticos</h3>
+          <p>
+            Ferramentas mudam todo mês. As mentalidades que fazem você aproveitá-las, não.
+            Mente Aberta, Mente Ágil, Mente Ativa e Mente Alinhada: o que fica com você
+            depois que a ferramenta da vez for substituída. Para fechar, você conhece cases
+            práticos de gente que aplicou a IA no próprio trabalho, com o que funcionou e
+            o que aprenderam no caminho.
+          </p>
+          <span class="module-card__tag">Inspiração + cases reais</span>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -222,23 +274,23 @@
       <div class="method-grid">
         <div class="method-card">
           <span class="method-card__num">20h</span>
-          <h3>Carga horária</h3>
-          <p>Curso teórico e demonstrativo, com muitos exemplos reais para você ver a IA funcionando na prática.</p>
+          <h3>07 módulos</h3>
+          <p>Vinte horas de conteúdo divididas em sete módulos, com muitos exemplos reais para você ver a IA funcionando na prática.</p>
+        </div>
+        <div class="method-card">
+          <span class="method-card__num">Do zero</span>
+          <h3>Ninguém fica para trás</h3>
+          <p>O curso parte do conhecimento zero ou básico e avança sem pressa, sem jargão. Não é preciso saber nada de tecnologia para começar.</p>
         </div>
         <div class="method-card">
           <span class="method-card__num">Ver &amp; aplicar</span>
-          <h3>Foco em entender</h3>
-          <p>Pouca prática em sala: a ideia é entender e ver funcionando. Você recebe exercícios para aplicar no seu próprio trabalho.</p>
-        </div>
-        <div class="method-card">
-          <span class="method-card__num">Turma</span>
-          <h3>Compartilhar inspira</h3>
-          <p>No último encontro, quem quiser compartilha o que desenvolveu, uma troca real que inspira toda a turma.</p>
+          <h3>Entender de verdade</h3>
+          <p>Você vê funcionando na tela e recebe exercícios para aplicar no seu próprio trabalho, no intervalo entre um módulo e outro.</p>
         </div>
         <div class="method-card">
           <span class="method-card__num">100%</span>
-          <h3>Online e gravado</h3>
-          <p>Todas as aulas são ao vivo, online e ficam gravadas na plataforma para você rever quando quiser.</p>
+          <h3>Gravado</h3>
+          <p>Independente do formato que você escolher, as aulas ou mentorias ficam gravadas e disponíveis por 6 meses.</p>
         </div>
       </div>
     </div>
@@ -249,7 +301,7 @@
        7. A PROFESSORA  (fundo violeta escuro, destaque forte)
        ================================================================= -->
   <section class="section section--dark reveal" id="professora">
-    <svg class="orbit-watermark orbit-watermark--left" viewBox="0 0 200 200" aria-hidden="true">
+    <svg class="orbit-watermark orbit-watermark--left" viewBox="63 93 315 315" aria-hidden="true">
       <use href="#vio-orbit" />
     </svg>
     <div class="container teacher">
@@ -271,8 +323,10 @@
         </p>
         <p class="lead--light">
           Atuou como executiva em grandes multinacionais, incluindo a Hotmart (empresa tech
-          pioneira no uso de Inteligência Artificial no Brasil), além de liderar projetos de
-          transformação digital e inovação para diferentes setores.
+          pioneira no uso de Inteligência Artificial no Brasil), na Deloitte liderando
+          projetos de inovação e transformação digital em grandes indústrias, além de atuar
+          por anos na Stellantis coordenando o maior programa de intraempreendedorismo e
+          transformação digital.
         </p>
         <p class="lead--light">
           Seu diferencial é transformar temas complexos em conteúdos simples, práticos e
@@ -281,8 +335,8 @@
           a dia profissional.
         </p>
 
-        <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=9Co54D7gjU-wCAvVoQ5fLCbYiHoh9GJLrg4l5iycMZNUOVhHRTg0MUpCMFQwRlJQWkU3RExXQ0hFMi4u" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--onDark">
-          Participe da aula inaugural gratuita
+        <a href="#oferta" class="btn btn--primary btn--onDark">
+          Ver as três formas de fazer
         </a>
       </div>
     </div>
@@ -294,7 +348,7 @@
        ================================================================= -->
   <section class="section section--light reveal" id="sobre">
     <div class="container container--narrow about">
-      <svg class="orbit-watermark orbit-watermark--about" viewBox="0 0 200 200" aria-hidden="true">
+      <svg class="orbit-watermark orbit-watermark--about" viewBox="63 93 315 315" aria-hidden="true">
         <use href="#vio-orbit" />
       </svg>
       <span class="bar-title">Sobre a escola</span>
@@ -324,10 +378,10 @@
   <section class="section section--dark reveal" id="depoimentos">
     <div class="container">
       <span class="bar-title bar-title--light">Prova social</span>
-      <h2 class="section__title section__title--light">Já são duas turmas. Agora é a sua vez.</h2>
+      <h2 class="section__title section__title--light">Já são três turmas. Agora é a sua vez.</h2>
       <p class="lead--light section__intro">
-        Estamos na terceira turma. As duas primeiras foram um sucesso, com
-        <strong>NPS de 89</strong>, um índice que reflete gente que aprendeu e recomenda.
+        Três turmas concluídas, com <strong>NPS de 89</strong>: um índice que reflete
+        gente que aprendeu e recomenda.
       </p>
 
       <div class="testimonial-grid">
@@ -381,96 +435,147 @@
        10. OFERTA / INVESTIMENTO  (fundo off-white)
        ================================================================= -->
   <section class="section section--light reveal" id="oferta">
-    <div class="container container--offer">
-      <span class="bar-title">A oferta</span>
-      <h2 class="section__title">Comece de graça. Continue por muito menos do que vale.</h2>
+    <svg class="orbit-watermark orbit-watermark--offer" viewBox="63 93 315 315" aria-hidden="true">
+      <use href="#vio-orbit" />
+    </svg>
+    <div class="container">
+      <span class="bar-title">Como fazer</span>
+      <h2 class="section__title">O mesmo conteúdo, três jeitos de aprender.<br />Escolha o que combina com <em>você</em>.</h2>
+      <p class="lead section__intro plans__intro">
+        Ninguém aprende do mesmo jeito. Tem quem renda mais sozinho, no próprio horário.
+        Tem quem precise de dia marcado e turma junto. E tem quem queira a IA aplicada
+        direto na realidade da própria empresa. Os três caminhos levam ao mesmo lugar.
+      </p>
 
-      <div class="offer-card">
-        <svg class="orbit-watermark orbit-watermark--offer" viewBox="0 0 200 200" aria-hidden="true">
-          <use href="#vio-orbit" />
-        </svg>
+      <div class="plans">
 
-        <div class="offer-card__free">
-          <span class="offer-tag">Grátis</span>
-          <h3>Aula inaugural · 08 de julho</h3>
-          <p>Uma aula aberta a todos sobre a história da IA: de onde ela veio e como chegou ao seu dia a dia. Sem custo, sem compromisso.</p>
-        </div>
+        <!-- =============== PLANO 1 — GRAVADO =============== -->
+        <article class="plan">
+          <span class="plan__badge plan__badge--soon">Em breve</span>
+          <span class="plan__kicker">No seu ritmo</span>
+          <h3 class="plan__name">Curso gravado</h3>
 
-        <div class="offer-card__paid">
-          <h3>Curso completo · Profissional 5.0</h3>
+          <p class="plan__price">
+            <span class="plan__price__value">R$ 97</span>
+            <small>à vista ou 3x de R$ 34,62</small>
+          </p>
 
-          <div class="offer-price">
-            <small>Investimento</small>
-            <p class="offer-price__main">
-              <span class="offer-price__x">12x</span>
-              <span class="offer-price__value">R$ 49,64</span>
-            </p>
-            <p class="offer-price__cash">ou <strong>R$ 480,00</strong> à vista</p>
-          </div>
+          <p class="plan__for">
+            Para quem tem disciplina, horário imprevisível e quer economizar.
+          </p>
 
           <ul class="offer-list">
-            <li><span>✓</span> 20 horas de curso, ao vivo e online</li>
-            <li><span>✓</span> Segundas e quartas, das 20h às 22h</li>
-            <li><span>✓</span> De 08 de julho a 10 de agosto</li>
-            <li><span>✓</span> Muitos exemplos reais e exercícios aplicáveis</li>
-            <li><span>✓</span> <strong>Bônus:</strong> materiais complementares (apostila, podcast, entre outros)</li>
-            <li><span>✓</span> <strong>Bônus:</strong> acesso às aulas gravadas por 1 ano</li>
+            <li><span>✓</span> Todo o conteúdo gravado na plataforma, módulo a módulo</li>
+            <li><span>✓</span> Acesso por 6 meses, no horário que der na sua semana</li>
+            <li><span>✓</span> Você avança na sua velocidade, pausa e volta quando quiser</li>
+            <li><span>✓</span> <strong>Bônus:</strong> quem entrar primeiro recebe todas as atualizações do curso durante os 6 meses</li>
           </ul>
 
-          <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=9Co54D7gjU-wCAvVoQ5fLCbYiHoh9GJLrg4l5iycMZNUOVhHRTg0MUpCMFQwRlJQWkU3RExXQ0hFMi4u" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg btn--block">
-            Participe da aula inaugural gratuita
-          </a>
-          <p class="offer-note">Comece pela aula gratuita e decida com calma se o curso é para você.</p>
-        </div>
+          <div class="plan__cta">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeA9_PnbfsyIqQmGGCtfpWrLYNT92BzERUaRV2El_dwP6hGAw/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--block">
+              Me avise quando lançar
+            </a>
+            <p class="offer-note">
+              Um aviso honesto: economizar só compensa se você fizer. Curso parado na
+              plataforma não libera tempo nenhum.
+            </p>
+          </div>
+        </article>
+
+        <!-- =============== PLANO 2 — AO VIVO (destaque) =============== -->
+        <article class="plan plan--featured">
+          <span class="plan__badge plan__badge--hot">Restam poucas vagas</span>
+          <span class="plan__kicker">Com turma e hora marcada</span>
+          <h3 class="plan__name">Curso ao vivo</h3>
+
+          <p class="plan__price">
+            <span class="plan__price__value">R$ 497</span>
+            <small>à vista ou 10x de R$ 59,73</small>
+          </p>
+
+          <p class="plan__for">
+            Para quem quer acompanhamento e precisa de um compromisso na agenda para
+            realmente estudar.
+          </p>
+
+          <ul class="offer-list">
+            <li><span>✓</span> 7 encontros ao vivo · 20 horas de conteúdo</li>
+            <li><span>✓</span> Quartas-feiras, das 19h às 22h</li>
+            <li><span>✓</span> <strong>Início em 30 de setembro</strong></li>
+            <li><span>✓</span> Pausas para dúvidas e momentos de prática junto com a turma</li>
+            <li><span>✓</span> Toda turma começa do zero ou do básico: avançamos juntos</li>
+            <li><span>✓</span> Tudo fica gravado na plataforma para rever quando quiser</li>
+          </ul>
+
+          <div class="plan__cta">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhrv_T1SYJ6oT-wB1O9WWE1U7HJpU_kujyfGMXUzoBpGrfKw/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--block">
+              Quero fazer parte
+            </a>
+            <p class="offer-note">
+              A turma já está quase completa. As vagas são limitadas para manter a
+              conversa possível.
+            </p>
+          </div>
+        </article>
+
+        <!-- =============== PLANO 3 — MENTORIA =============== -->
+        <article class="plan">
+          <span class="plan__badge plan__badge--group">Grupo fechado</span>
+          <span class="plan__kicker">Na sua realidade</span>
+          <h3 class="plan__name">Mentoria personalizada</h3>
+
+          <p class="plan__price">
+            <span class="plan__price__value">R$ 997</span>
+            <small>à vista ou 12x de R$ 103,11</small>
+            <small>por pessoa · turma a partir de 5</small>
+          </p>
+
+          <p class="plan__for">
+            Para times, sócios e grupos de empresários que querem aprender juntos, com as
+            coisas da empresa em cima da mesa.
+          </p>
+
+          <ul class="offer-list">
+            <li><span>✓</span> Conteúdo 100% direcionado à prática de vocês</li>
+            <li><span>✓</span> Pegamos processos reais da empresa e implementamos junto</li>
+            <li><span>✓</span> Grupo fechado: dá para abrir o que é interno entre gente de confiança</li>
+            <li><span>✓</span> Encontros combinados com o grupo, no ritmo de vocês</li>
+            <li><span>✓</span> As mentorias ficam gravadas e disponíveis por 6 meses</li>
+          </ul>
+
+          <div class="plan__cta">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf9b7Gd0lVNGlGa93nTbEB4k8TCIkf8VqXIdugnrCGRI-94Og/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--block">
+              Quero mentoria em grupo
+            </a>
+            <p class="offer-note">
+              Datas, formato e recorte do conteúdo são combinados com o grupo depois
+              da inscrição.
+            </p>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
 
 
   <!-- =================================================================
-       11. LISTA DE ESPERA / CTA FINAL  (fundo violeta escuro)
-       ================================================================= -->
-  <section class="section section--dark reveal cta-final" id="lista-espera">
-    <svg class="orbit-watermark orbit-watermark--hero" viewBox="0 0 200 200" aria-hidden="true">
-      <use href="#vio-orbit" />
-    </svg>
-    <div class="container container--narrow cta-final__inner">
-      <h2 class="section__title section__title--light">As vagas são limitadas por turma</h2>
-      <p class="lead--light">
-        Se as vagas desta turma esgotarem, você pode entrar na lista de espera: basta
-        preencher o formulário de diagnóstico e ficar ciente das condições de investimento.
-        Assim, você garante prioridade na próxima abertura.
-      </p>
-      <p class="lead--light">
-        Mas o primeiro passo é o mais fácil, e é gratuito. Comece pela aula inaugural.
-      </p>
-
-      <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=9Co54D7gjU-wCAvVoQ5fLCbYiHoh9GJLrg4l5iycMZNUOVhHRTg0MUpCMFQwRlJQWkU3RExXQ0hFMi4u" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg btn--onDark">
-        Participe da aula inaugural gratuita
-      </a>
-      <p class="hero__date">08 de julho, 20h · online e aberta a todos</p>
-    </div>
-  </section>
-
-
-  <!-- =================================================================
-       12. RODAPÉ  (fundo violeta escuro, mais escuro)
+       11. RODAPÉ  (fundo violeta escuro, mais escuro)
        ================================================================= -->
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <!-- PLACEHOLDER IMAGEM — logo VIO FUTURO.
-             Troque o <span> abaixo por: <img src="assets/logo-vio.svg" alt="VIO FUTURO"> -->
-        <span class="brand brand--footer">VIO<span class="brand__accent">FUTURO</span></span>
+        <img class="brand brand--footer" src="assets/logo-vio-futuro.svg" alt="VIO FUTURO" width="774" height="294" />
         <p class="footer__tagline">A tecnologia trabalha. Você vive.</p>
       </div>
 
       <nav class="footer__links" aria-label="Links do rodapé">
         <a href="#contexto">O curso</a>
+        <a href="#modulos">Os módulos</a>
         <a href="#professora">A professora</a>
         <a href="#depoimentos">Depoimentos</a>
-        <a href="#oferta">A oferta</a>
-        <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=9Co54D7gjU-wCAvVoQ5fLCbYiHoh9GJLrg4l5iycMZNUOVhHRTg0MUpCMFQwRlJQWkU3RExXQ0hFMi4u" target="_blank" rel="noopener noreferrer">Aula gratuita</a>
+        <a href="#oferta">Como fazer</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhrv_T1SYJ6oT-wB1O9WWE1U7HJpU_kujyfGMXUzoBpGrfKw/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer">Inscrição</a>
       </nav>
     </div>
     <div class="footer__base">
