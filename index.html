@@ -10,7 +10,8 @@
     Cada plano tem o seu formulário; o rodapé usa o da turma ao vivo.
   - Os três planos ficam na seção #oferta (busque por "class=\"plans\"").
   - Os módulos do curso ficam na seção #modulos.
-  - Substitua as imagens: procure por comentários "PLACEHOLDER IMAGEM".
+  - Marca: assets/logo-vio-futuro.svg (topo e rodapé) e o símbolo oficial
+    inline no <defs> "vio-orbit", reaproveitado como grafismo de fundo.
   - Estilos ficam em: assets/styles.css
   - Animações de scroll ficam em: assets/script.js
   =====================================================================
@@ -30,16 +31,18 @@
 <body>
 
   <!-- =================================================================
-       SÍMBOLO DA MARCA — 4 elipses em órbita (SVG reutilizável)
-       Definido uma vez aqui e reutilizado como marca d'água via <use>.
+       SÍMBOLO DA MARCA — órbita VIO (SVG reutilizável)
+       Definido uma vez aqui e reutilizado como grafismo de fundo via <use>.
        ================================================================= -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
+      <!-- Símbolo oficial da marca (VIO_Simbolo_FundoEscuro.svg).
+           stroke="currentColor" deixa cada seção pintar na sua cor. -->
       <g id="vio-orbit">
-        <ellipse cx="100" cy="100" rx="90" ry="38" transform="rotate(0 100 100)" />
-        <ellipse cx="100" cy="100" rx="90" ry="38" transform="rotate(45 100 100)" />
-        <ellipse cx="100" cy="100" rx="90" ry="38" transform="rotate(90 100 100)" />
-        <ellipse cx="100" cy="100" rx="90" ry="38" transform="rotate(135 100 100)" />
+        <path d="M157.428 289.426C201.08 361.031 265.76 401.221 301.896 379.192C338.031 357.163 331.938 281.258 288.287 209.652C244.635 138.047 179.955 97.8579 143.819 119.887C107.683 141.916 113.777 217.821 157.428 289.426Z" stroke="currentColor"/>
+        <path d="M154.153 212.823C112.877 285.824 109.281 361.888 146.121 382.718C182.961 403.548 246.286 361.256 287.562 288.255C328.837 215.255 332.434 139.19 295.594 118.36C258.754 97.5303 195.429 139.823 154.153 212.823Z" stroke="currentColor"/>
+        <path d="M257.869 186.003C185.053 144.403 109.005 140.469 88.0118 177.216C67.0184 213.963 109.029 277.475 181.846 319.075C254.662 360.675 330.71 364.609 351.703 327.862C372.696 291.115 330.686 227.603 257.869 186.003Z" stroke="currentColor"/>
+        <path d="M181.563 183.133C109.004 225.18 67.3847 288.95 88.6039 325.567C109.823 362.184 185.845 357.782 258.404 315.735C330.963 273.687 372.582 209.917 351.363 173.301C330.144 136.684 254.122 141.086 181.563 183.133Z" stroke="currentColor"/>
       </g>
     </defs>
   </svg>
@@ -50,12 +53,14 @@
        ================================================================= -->
   <header class="hero section--dark">
     <!-- Marca d'água: órbita VIO -->
-    <svg class="orbit-watermark orbit-watermark--hero" viewBox="0 0 200 200" aria-hidden="true">
+    <svg class="orbit-watermark orbit-watermark--hero" viewBox="63 93 315 315" aria-hidden="true">
       <use href="#vio-orbit" />
     </svg>
 
     <nav class="hero__nav">
-      <span class="brand">VIO<span class="brand__accent">FUTURO</span></span>
+      <a href="#" class="brand" aria-label="VIO FUTURO — início">
+        <img src="assets/logo-vio-futuro.svg" alt="VIO FUTURO" width="774" height="294" />
+      </a>
       <span class="nav__group">
         <a href="#modulos" class="nav__link">Os módulos</a>
         <a href="#oferta" class="nav__link">Como fazer</a>
@@ -107,7 +112,7 @@
        3. A TRANSFORMAÇÃO / PROMESSA  (fundo violeta)
        ================================================================= -->
   <section class="section section--dark reveal" id="transformacao">
-    <svg class="orbit-watermark orbit-watermark--right" viewBox="0 0 200 200" aria-hidden="true">
+    <svg class="orbit-watermark orbit-watermark--right" viewBox="63 93 315 315" aria-hidden="true">
       <use href="#vio-orbit" />
     </svg>
     <div class="container container--narrow">
@@ -168,7 +173,7 @@
        5. O QUE VOCÊ VAI APRENDER  (fundo violeta)
        ================================================================= -->
   <section class="section section--dark reveal" id="modulos">
-    <svg class="orbit-watermark orbit-watermark--right" viewBox="0 0 200 200" aria-hidden="true">
+    <svg class="orbit-watermark orbit-watermark--right" viewBox="63 93 315 315" aria-hidden="true">
       <use href="#vio-orbit" />
     </svg>
     <div class="container">
@@ -296,7 +301,7 @@
        7. A PROFESSORA  (fundo violeta escuro, destaque forte)
        ================================================================= -->
   <section class="section section--dark reveal" id="professora">
-    <svg class="orbit-watermark orbit-watermark--left" viewBox="0 0 200 200" aria-hidden="true">
+    <svg class="orbit-watermark orbit-watermark--left" viewBox="63 93 315 315" aria-hidden="true">
       <use href="#vio-orbit" />
     </svg>
     <div class="container teacher">
@@ -343,7 +348,7 @@
        ================================================================= -->
   <section class="section section--light reveal" id="sobre">
     <div class="container container--narrow about">
-      <svg class="orbit-watermark orbit-watermark--about" viewBox="0 0 200 200" aria-hidden="true">
+      <svg class="orbit-watermark orbit-watermark--about" viewBox="63 93 315 315" aria-hidden="true">
         <use href="#vio-orbit" />
       </svg>
       <span class="bar-title">Sobre a escola</span>
@@ -430,7 +435,7 @@
        10. OFERTA / INVESTIMENTO  (fundo off-white)
        ================================================================= -->
   <section class="section section--light reveal" id="oferta">
-    <svg class="orbit-watermark orbit-watermark--offer" viewBox="0 0 200 200" aria-hidden="true">
+    <svg class="orbit-watermark orbit-watermark--offer" viewBox="63 93 315 315" aria-hidden="true">
       <use href="#vio-orbit" />
     </svg>
     <div class="container">
@@ -560,9 +565,7 @@
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <!-- PLACEHOLDER IMAGEM — logo VIO FUTURO.
-             Troque o <span> abaixo por: <img src="assets/logo-vio.svg" alt="VIO FUTURO"> -->
-        <span class="brand brand--footer">VIO<span class="brand__accent">FUTURO</span></span>
+        <img class="brand brand--footer" src="assets/logo-vio-futuro.svg" alt="VIO FUTURO" width="774" height="294" />
         <p class="footer__tagline">A tecnologia trabalha. Você vive.</p>
       </div>
 
