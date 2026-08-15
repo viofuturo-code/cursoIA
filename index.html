@@ -28,6 +28,15 @@
 
 <link rel="stylesheet" href="assets/styles.css" />
 
+<!-- Mídia principal do hero (above the fold). O atributo media evita
+     que o celular baixe qualquer coisa, e o type faz o navegador pular
+     o formato que ele não decodifica. -->
+<link rel="preload" as="image" href="assets/hero-bastidores.avif" type="image/avif"
+      imagesrcset="assets/hero-bastidores.avif 1x, assets/hero-bastidores@2x.avif 2x"
+      media="(min-width: 900px)" fetchpriority="high" />
+<link rel="preload" as="image" href="assets/hero-nayara-poster.jpg" type="image/jpeg"
+      media="(min-width: 900px)" />
+
 <body>
 
   <!-- =================================================================
@@ -47,19 +56,22 @@
     </defs>
   </svg>
 
-
   <!-- =================================================================
-       1. HERO  (fundo violeta escuro)
-       ================================================================= -->
-  <header class="hero section--dark">
-    <!-- Marca d'água: órbita VIO -->
-    <svg class="orbit-watermark orbit-watermark--hero" viewBox="63 93 315 315" aria-hidden="true">
-      <use href="#vio-orbit" />
-    </svg>
+       1. HERO  (fundo cinza claro com grid + montagem de 3 mídias)
+       -----------------------------------------------------------------
+       A montagem é puramente decorativa: título, subtítulo e CTA nunca
+       dependem de mídia carregada. Cada peça tem dimensão fixa, então o
+       layout já nasce montado e não desloca nada ao carregar (CLS 0).
 
+       As mídias só existem no desktop. Nas <picture> isso é feito com
+       <source media>: abaixo de 900px nenhuma fonte casa e o <img> cai
+       num data URI de 1px, sem tráfego. Assim a montagem continua
+       funcionando mesmo sem JavaScript.
+       ================================================================= -->
+  <header class="hero">
     <nav class="hero__nav">
       <a href="#" class="brand" aria-label="VIO FUTURO — início">
-        <img src="assets/logo-vio-futuro.svg" alt="VIO FUTURO" width="774" height="294" />
+        <img src="assets/logo-vio-futuro-claro.svg" alt="VIO FUTURO" width="774" height="294" />
       </a>
       <span class="nav__group">
         <a href="#modulos" class="nav__link">Os módulos</a>
@@ -78,28 +90,77 @@
           profissional, sem complicação, sem jargão, no seu ritmo.
         </p>
 
-        <a href="#oferta" class="btn btn--primary btn--lg btn--onDark">
+        <a href="#oferta" class="btn btn--primary btn--lg">
           Escolha como quer aprender
         </a>
         <p class="hero__date">Três formatos · gravado, ao vivo ou mentoria em grupo</p>
       </div>
 
-      <!-- Vídeo da Nayara em sala. Só aparece no desktop: no mobile o
-           elemento fica oculto e o script nem carrega os arquivos, para
-           não gastar dados de quem está no celular. -->
-      <div class="hero__media">
-        <video
-          class="hero__video"
-          data-desktop-video
-          data-poster="assets/hero-nayara-poster.jpg"
-          data-webm="assets/hero-nayara.webm"
-          data-mp4="assets/hero-nayara.mp4"
-          preload="none"
-          muted
-          loop
-          playsinline
-          aria-label="Nayara Namorato dando aula presencial"
-        ></video>
+      <!-- Montagem: vídeo (fundo) → quadrado → círculo (frente).
+           data-parallax define a velocidade de cada peça no scroll. -->
+      <div class="stage" aria-hidden="true">
+
+        <!-- Peça 1 — vídeo vertical, a maior, a mais lenta -->
+        <div class="stage__piece stage__piece--video" data-parallax="0.05">
+          <div class="frame frame--video is-loading">
+            <video
+              class="frame__media"
+              data-desktop-video
+              data-poster="assets/hero-nayara-poster.jpg"
+              data-webm="assets/hero-nayara.webm"
+              data-mp4="assets/hero-nayara.mp4"
+              width="320" height="568"
+              preload="metadata"
+              muted loop playsinline
+            ></video>
+            <noscript>
+              <picture>
+                <source media="(min-width: 900px)" srcset="assets/hero-nayara-poster.jpg" />
+                <img class="frame__media" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                     alt="" width="320" height="568" />
+              </picture>
+            </noscript>
+          </div>
+        </div>
+
+        <!-- Peça 2 — bastidores da gravação, quadrado -->
+        <div class="stage__piece stage__piece--square" data-parallax="0.11">
+          <div class="frame frame--square is-loading">
+            <picture>
+              <source media="(min-width: 900px)" type="image/avif"
+                      srcset="assets/hero-bastidores.avif 1x, assets/hero-bastidores@2x.avif 2x" />
+              <source media="(min-width: 900px)" type="image/webp"
+                      srcset="assets/hero-bastidores.webp 1x, assets/hero-bastidores@2x.webp 2x" />
+              <source media="(min-width: 900px)" type="image/jpeg"
+                      srcset="assets/hero-bastidores.jpg 1x, assets/hero-bastidores@2x.jpg 2x" />
+              <img class="frame__media"
+                   src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                   alt="Nayara Namorato gravando aulas do curso, vista de trás da câmera"
+                   width="260" height="260"
+                   loading="eager" fetchpriority="high" decoding="async" />
+            </picture>
+          </div>
+        </div>
+
+        <!-- Peça 3 — palestra no palco, círculo, a mais rápida -->
+        <div class="stage__piece stage__piece--circle" data-parallax="0.19">
+          <div class="frame frame--circle is-loading">
+            <picture>
+              <source media="(min-width: 900px)" type="image/avif"
+                      srcset="assets/hero-palco.avif 1x, assets/hero-palco@2x.avif 2x" />
+              <source media="(min-width: 900px)" type="image/webp"
+                      srcset="assets/hero-palco.webp 1x, assets/hero-palco@2x.webp 2x" />
+              <source media="(min-width: 900px)" type="image/jpeg"
+                      srcset="assets/hero-palco.jpg 1x, assets/hero-palco@2x.jpg 2x" />
+              <img class="frame__media"
+                   src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                   alt="Nayara Namorato palestrando no palco, com microfone na mão"
+                   width="240" height="240"
+                   loading="eager" fetchpriority="high" decoding="async" />
+            </picture>
+          </div>
+        </div>
+
       </div>
     </div>
   </header>
