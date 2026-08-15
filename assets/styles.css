@@ -159,7 +159,7 @@ a { color: inherit; }
 }
 .brand img, img.brand {
   width: auto;
-  height: 40px;
+  height: 30px;
   display: block;
 }
 img.brand--footer, .brand--footer img { height: 56px; }
@@ -277,12 +277,12 @@ img.brand--footer, .brand--footer img { height: 56px; }
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--lavanda);
   text-decoration: none;
 }
 .nav__link:hover { color: #fff; }
-.nav__group { display: flex; gap: 1.25rem; }
+.nav__group { display: flex; gap: 0.9rem; }
 
 .hero__inner {
   max-width: var(--container);
@@ -295,6 +295,18 @@ img.brand--footer, .brand--footer img { height: 56px; }
   z-index: 2;
 }
 .hero__copy { max-width: 780px; }
+
+/* Vídeo do hero: escondido no mobile (o script também não baixa o
+   arquivo lá). A coluna só existe a partir de 900px — ver seção 9. */
+.hero__media { display: none; }
+.hero__video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radio);
+  background: rgba(200, 168, 233, 0.12); /* segura o espaço enquanto carrega */
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.65);
+}
 .hero__headline {
   font-family: var(--f-titulo);
   font-weight: 700;
@@ -757,6 +769,9 @@ img.brand--footer, .brand--footer img { height: 56px; }
   .module-grid { grid-template-columns: repeat(2, 1fr); }
   .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
   .footer__inner { grid-template-columns: 1fr auto; align-items: center; }
+  .brand img, img.brand { height: 40px; }
+  .nav__link { font-size: 0.9rem; }
+  .nav__group { gap: 1.25rem; }
 }
 
 /* Desktop */
@@ -765,6 +780,18 @@ img.brand--footer, .brand--footer img { height: 56px; }
   .testimonial-grid { grid-template-columns: repeat(3, 1fr); }
   .teacher { grid-template-columns: 0.85fr 1.15fr; }
   .teacher__media { max-width: 380px; }
+  /* Hero em duas colunas: texto à esquerda, vídeo à direita.
+     A coluna do vídeo tem largura fixa para o texto não ser espremido. */
+  .hero__inner {
+    grid-template-columns: minmax(0, 1fr) 320px;
+    align-items: center;
+  }
+  .hero__copy { max-width: 620px; }
+  .hero__media { display: block; }
+  /* O vídeo já dá altura à dobra: o respiro de baixo pode ser menor
+     do que o padrão das seções, senão sobra um vazio grande. */
+  .hero { padding-bottom: clamp(2.5rem, 4vw, 4rem); }
+
   .module-grid { grid-template-columns: repeat(3, 1fr); }
   /* Os três planos lado a lado */
   .plans { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }

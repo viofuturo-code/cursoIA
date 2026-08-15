@@ -83,6 +83,24 @@
         </a>
         <p class="hero__date">Três formatos · gravado, ao vivo ou mentoria em grupo</p>
       </div>
+
+      <!-- Vídeo da Nayara em sala. Só aparece no desktop: no mobile o
+           elemento fica oculto e o script nem carrega os arquivos, para
+           não gastar dados de quem está no celular. -->
+      <div class="hero__media">
+        <video
+          class="hero__video"
+          data-desktop-video
+          data-poster="assets/hero-nayara-poster.jpg"
+          data-webm="assets/hero-nayara.webm"
+          data-mp4="assets/hero-nayara.mp4"
+          preload="none"
+          muted
+          loop
+          playsinline
+          aria-label="Nayara Namorato dando aula presencial"
+        ></video>
+      </div>
     </div>
   </header>
 
