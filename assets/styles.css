@@ -548,8 +548,13 @@ img.brand--footer, .brand--footer img { height: 56px; }
   gap: 1.5rem;
   margin-top: 3rem;
 }
+/* Coluna flex para a assinatura descer até o rodapé do cartão: os
+   depoimentos têm tamanhos bem diferentes e os nomes ficariam soltos
+   no meio do vazio se seguissem logo depois do texto. */
 .testimonial {
   position: relative;
+  display: flex;
+  flex-direction: column;
   background: var(--off-white);
   color: var(--violeta-escuro);
   border-radius: var(--radio);
@@ -557,6 +562,7 @@ img.brand--footer, .brand--footer img { height: 56px; }
   margin: 0;
   box-shadow: 0 24px 50px -30px rgba(0,0,0,0.5);
 }
+.testimonial__author { margin-top: auto; }
 .testimonial__mark {
   position: absolute;
   top: 0.4rem;
@@ -572,16 +578,6 @@ img.brand--footer, .brand--footer img { height: 56px; }
   font-size: 1.02rem;
   line-height: 1.6;
   color: #3a2b45;
-}
-/* Espaço discreto reservado para futura assinatura (sem texto visível):
-   apenas um pequeno traço na cor de acento. */
-.testimonial__sign {
-  height: 3px;
-  width: 40px;
-  border-radius: 999px;
-  background: var(--teal);
-  opacity: 0.5;
-  margin-top: 0.25rem;
 }
 .testimonial__author {
   display: flex;
@@ -707,6 +703,14 @@ img.brand--footer, .brand--footer img { height: 56px; }
 }
 /* Linha extra do preço (ex.: "por pessoa") fica colada na anterior */
 .plan__price small + small { margin-top: 0.15rem; }
+
+/* Plano sem valor fechado: o rótulo é palavra, não número, então pede
+   um corpo menor para não brigar com os preços das outras colunas. */
+.plan__price--sob-medida .plan__price__value {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  color: var(--violeta);
+  white-space: normal;
+}
 
 /* "Ideal para quem..." — a frase que faz a pessoa se reconhecer no plano */
 .plan__for {
